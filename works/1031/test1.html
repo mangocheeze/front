@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test1.html</title>
+  <style>
+    .box{
+      margin:10px;
+    }
+    .lm5{ /*class lm5 써있는거만 왼쪽마진 띄움*/
+      margin-left: 25px;
+    }
+    #box1{
+      background-color: green;
+    }
+    #box2{
+      background-color: orangered;
+      width: 300px;
+    }
+    .aa1{ /*div는 내용이 없어도나옴*/
+      background-color: blue;
+      width: 100%;
+      height: 20px;
+    }
+    .bb1{ /*span은 내용이 있어야만함*/
+      background-color: pink;
+      width: 100%;
+      height: 20px;
+    }
+    #box3{
+      width: 300px;
+      height: 100px;
+      border: 5px solid red;
+      margin: 20px 0px; /*위 아래만 줄거임*/
+      padding: 25px; /*위,아래,왼,오 다 25px만큼늘어남*/
+      text-align: center; /*글자 가운데*/
+    }
+    #contBox3 {
+      width: 700px;
+      /* height: 250px; */
+      background-color: aqua;
+      /* text-align: center; */
+      margin: 0px auto; /* 지정된 영역을 중앙정렬하기 */
+    }
+    #box4 {
+      width: 400px;
+      height: 92px;
+      background-color: yellow;
+      text-align: center;
+      padding-top: 58px;
+    }
+    #box5 {border: 5px dotted green;}
+    #box6 {border: 5px double green;}
+    #box7{
+      height: 200px;
+      border: 5px double green;
+      background-color: khaki;
+      border-radius: 30px 10px 0px 0px; /*선의 모서리 왼쪽위 오른쪽위 오른쪽아래 왼쪽아래*/
+      text-align: center;
+      font-size: 2em; /*1em= 16px*/
+      padding: 100px 0 0 0;
+      font-family: '한아름','궁서'; /*한아름이란 폰트가없으면 다음꺼(차선책)으로 넣어놓으면 그걸 따라감*/
+    }
+    #box8{font-variant: small-caps;}/*소문자를 대문자로 바꾸고 대문자를 작게 출력*/
+    #box9{text-transform: lowercase;} /*대문자를 소문자로바꿈*/
+    #box10{text-transform: uppercase;} /*다 대문자로 바꿈*/
+    #box11{text-decoration: line-through;} /*가운데에 줄그음*/
+    #box12{
+      font-size: 25px;
+      font-weight: bolder;
+      text-shadow: 5px 3px 3px gray; /* x축 y축 흐림정도 그림자색상 => 그림자 (왼->오(위->아래))*/
+    }
+
+  </style>
+</head>
+<body>
+  <div>
+    <h2>Box Layout</h2>
+  </div>
+  <div id="box1" class="box lm5">1.안녕하세요.</div>
+  <div id="box2" class="box">2.안녕하세요.</div>
+  <div id="contBox3">
+    <div id="box3" class="box lm5">3.안녕하세요.</div>
+  </div>
+  <div id="box4" class="box">4.안녕하세요.</div>
+  <div id="box5" class="box lm5">5.안녕하세요.</div>
+  <div id="box6" class="box">6.안녕하세요.</div>
+  <div id="box7" class="box">7.안녕하세요.</div>
+  <div id="box8" class="box">8.안녕하세요.(Welcome to Korea!)</div>
+  <div id="box9" class="box">9.안녕하세요.(Welcome to Korea!)</div>
+  <div id="box10" class="box">10.안녕하세요.(Welcome to Korea!)</div>
+  <div id="box11" class="box">11.안녕하세요.(Welcome to Korea!)</div>
+  <div id="box12" class="box">12.안녕하세요.(Welcome to Korea!)</div>
+  <div class="aa1"></div>
+  <div>
+    코드로 <span class="bb1">배우는</span> 스프링 웹 프로젝트 개정판
+  </div>
+</body>
+</html>

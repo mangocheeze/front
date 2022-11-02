@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test1_2_3.html(풀다운 메뉴만들기)-메뉴연습</title>
+  <style>
+    /* 기본 css reset 설정하기 */
+    body,ul,li{
+      margin:0px;
+      padding: 0px;
+      list-style: none;
+    }
+
+    /* 앵커태그설정 */
+    a{
+      /* text-decoration: none;
+      color: blue; */
+      text-decoration: inherit;/*부모로부터 상속받아서 쓰겠다 */
+      color: inherit;
+    }
+
+    /* 주메뉴 설정작업 처리 */
+    nav{
+      text-align: center;
+    }
+
+    nav ul{
+      background-color: #dfdfdf;
+    }
+    /* 메뉴에 들어간 목록들을 inline-block화  */
+    nav> ul{ /*다른곳에서도 ul을 사용하게되는데 자식개념으로 명확하기 nav의자식ul만 적용하겠다고함*/
+      /* background-color: #dfdfdf; */
+      display: inline-block;
+      border-radius:5px ; /*이거랑 padding넣으면 모서리가 생김*/
+      padding: 0px 10px;
+    }
+    nav> ul> li{
+      display: inline-block;
+      width: 110px;
+    }
+    /* nav > ul > li > a{ */
+    nav li > a{ /*상위와 하위를 똑같이하겠다?*/
+      display: block; /*커서가 글자에만이아니라 전체에 손가락모양이나옴*/
+      padding: 10px;
+    }
+
+    /* nav > ul > li:hover > a{ 마우스 가져다 댈때 변함 */
+    nav li:hover > a{ /*마우스 가져다 댈때 변함*/
+      background-color: #000;
+      color: #fff;
+    }
+    /* 주메뉴 */
+
+    nav li{
+      position: relative; /*absolute의 기본위치에서부터시작해라*/
+    }
+
+     /* 서브 메뉴 만들기 */
+    nav ul ul {
+      display: none;
+      position: absolute; /*메뉴 만들때 꼭 사용해야함*/
+      width: 110px;
+    }
+    nav li:hover > ul {
+      display: block; /*block으로 해야 세로로나옴*/
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">주메뉴 1</a>
+        <ul>
+          <li><a href="#">서브메뉴 1</a></li>
+          <li><a href="#">서브메뉴 2</a></li>
+          <li><a href="#">서브메뉴 3</a></li>
+          <li><a href="#">서브메뉴 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#">주메뉴 2</a>
+        <ul>
+          <li><a href="#">서브메뉴 1</a></li>
+          <li><a href="#">서브메뉴 2</a></li>
+          <li><a href="#">서브메뉴 3</a></li>
+          <li><a href="#">서브메뉴 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#">주메뉴 3</a>
+        <ul>
+          <li><a href="#">서브메뉴 1</a></li>
+          <li><a href="#">서브메뉴 2</a></li>
+          <li><a href="#">서브메뉴 3</a></li>
+          <li><a href="#">서브메뉴 4</a></li>
+        </ul>
+      </li>
+      <li><a href="#">주메뉴 4</a>
+        <ul>
+          <li><a href="#">서브메뉴 1</a></li>
+          <li><a href="#">서브메뉴 2</a></li>
+          <li><a href="#">서브메뉴 3</a></li>
+          <li><a href="#">서브메뉴 4</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+</body>
+</html>
+
+<!-- css reset은 구글에 검색해서 코드 복사해서 파일 하나만들고 여기서 링크걸기-->

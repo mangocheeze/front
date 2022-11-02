@@ -1,0 +1,77 @@
+<html>
+<head>
+  <title>회원가입form</title>
+</head>
+<body>
+  <h2>회원가입</h2>
+  <fieldset>
+    <legend>개인정보</legend>
+      <form name="myform" method="get" action="#">
+        <p>
+          <label for="irum" class="tit">성명</label>:
+          <input type="text" name="irum" id="irum" placeholder="성명을 입력하세요"/></br>
+        </p>
+        <p>
+          <label for="age" class="tit">나이</label>: 
+          <input type="number" name="age" id="age" /><br/>
+        </p>
+        <p>
+          <label for="pwd" class="tit">비밀번호</label>: 
+          <input type="password" name="pwd" id="pwd" /><br/>
+        </p>
+        <p>
+          생년월일: <input type="date" name="birthday" id="brithday" /></br>
+        </p>
+        <p>
+          메일주소: <input type="email" name="email" placeholder="abcd123@naver.com" />
+        </p>
+        <p>
+          성별:
+          <input type="radio" name="gender" id="gender1" value="male" checked>남자
+          <input type="radio" name="gender" id="gender2" value="female" />여자
+        </p>
+        <p>
+          취미:
+          <input type="checkbox" name="hobby" id="hobby1" value="운동"/>운동
+          <input type="checkbox" name="hobby" id="hobby2" value="노래"/>노래
+          <input type="checkbox" name="hobby" id="hobby3" value="미술"/>미술
+          <input type="checkbox" name="hobby" id="hobby4" value="요리"/>요리
+        </p>
+        <p>
+          컬러: <input type="color" name="color" />
+        </p>
+        <p>
+          거주지: <br/>
+          <select name="home">
+            <optgroup label="충북">
+              <option>청주</option>
+              <option>충주</option>
+              <option>제천</option>
+              <option>보은</option>
+              <option>옥천</option>  
+            </optgroup>
+            <optgroup label="충남">
+              <option>천안</option>
+              <option>공주</option>
+              <option>보령</option>
+              <option>아산</option>
+              <option>논산</option>
+            </optgroup> 
+          </select>                                             
+        </p>
+        <p>
+          자기소개<br/>
+          <textarea rows="5" cols="50" name="content" id="content" placeholder="자기소개"></textarea>
+        </p>
+        <p>
+          첨부파일 <input type="file" name="file"><br/><br/>
+        </p>
+        <p>
+          <input type="reset" value="다시입력" />
+          <input type="button" value="회원가입" />
+        </p>
+      
+  
+  </fieldset>
+</body>
+</html>

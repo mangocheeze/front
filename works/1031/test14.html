@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test14.html</title>
+  <style>
+    body{
+      margin: 0px;
+      font-size: 1em;
+    }
+    #container{
+      background-color: #ddd; /*연한회색*/
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input[type="text"],input[type="password"],input[type="number"],input[type="submit"], select{
+      width: 100%;
+      margin: 20px 0px;
+      padding: 10px 0px;
+      font-size: 1em;
+    }
+    input[type="text"]:hover,input[type="password"]:hover,input[type="number"]:hover,input[type="submit"]:hover, select:hover{
+      /* width: 100%;
+      margin: 20px 0px;
+      padding: 10px 0px; */
+      background-color: #bbb;
+    }
+    input[type="submit"]{
+      background-color: #ccc;
+    }
+    input[type="radio"]{
+      margin: 15px 5px 25px; /*위쪽 오른쪽 아래쪽*/
+    }
+  </style>
+
+</head>
+<body>
+  <div id="container">
+    < name="myform">
+      <label for="name">성명</label>
+      <input type="text" name="name" id="name" placeholder="성명을 입력하세요" autofocus required />
+      <!--autofocus required 마우스 가게하는거, 꼭써야하는거  -->
+      <lavel for="age">나이</lavel>
+      <input type="number" name="age" id="age" value="20" />
+      <lavel for="pwd">비밀번호</lavel>
+      <input type="password" name="pwd" id="pwd" />
+      <lavel for="gender">성별</lavel>
+      <input type="radio" name="gender" id="gender" value="남자" checked />남자 &nbsp;
+      <input type="radio" name="gender" id="gender" value="여자"  />여자<br/>
+      <lavel for="job">직업</lavel>
+      <select name="job" id="job">
+        <option value="">직업선택</option>
+        <option>학생</option>
+        <option>회사원</option>
+        <option>공무원</option>
+        <option>군인</option>
+        <option>기타</option>
+      </select>
+      <input type="submit" value="회원가입"/>
+    </form>
+  </div>
+</body>
+</html>

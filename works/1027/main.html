@@ -1,0 +1,14 @@
+<html>
+<head>
+ <!-- 위에 고정 3개가됨,선은 줄여주세요(색깔로 구분해서 선이 필요없으니까),frameborder:프레임사이의 경계선표시여부(1:표시,0:해제) framespacing:프레임과프레임의 미세한간격조절-->
+  <frameset rows="150px,*,100px" border="0px" frameborder="1" framespacing="0px">
+    <frame src="a.html" noresize scrolling="yes" marginheight="0px" marginwidth="0px">  <!-- noresize 크기고정 scrolling:스크롤 auto/yes/no-->
+    <frameset cols="180px,*,100px"> <!--왼쪽 고정 가운데가 3개가됨-->
+      <frame src="b.html" noresize>
+      <frame src="c.html">
+      <frame src="e.html">
+    </frameset>
+    <frame src="d.html">
+  </frameset>
+</head>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+  <title>datalist태그</title>
+</head>
+<body>
+  <h2>datalist 태그 연습</h2>
+  <form name="myform" method="get" oninput="result.value= su1.value * su2.value"> <!-- oninput 들어오는내용을 바로 반영함 -->
+    <p>
+      <input type="number" name="su1" value="0" />   <!-- name="변수" value="값" -->
+      <input type="number" name="su2" value="0" />
+      <output name="result"></output></br>
+    </p>
+    <p>
+      <input type="text" name="item" id="item" list="choices"/>
+      <datalist id="choices">  <!-- list와 id가 같아야함-->
+        <option value ="문법" label="문법"></option>
+        <option value ="어휘" label="어휘"></option>
+        <option value ="회화" label="회화"></option>
+        <option value ="듣기평가" label="듣기평가"></option>
+        <option value ="뉴스청취" label="뉴스청취"></option>
+      </datalist> 
+    </p>
+  </form>
+</body>
+</html>
