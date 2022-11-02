@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test14.html</title>
+  <script>
+    'use strict';
+
+    function add(){
+      let su1= document.myform.su1.value;
+      let su2= myform.su2.value;  //document는 같이있을땐 생략가능 
+      let res = parseInt(su1) + parseInt(su2);
+      alert("값: " + res);
+    }
+    function sub(){
+      let su1= document.myform.su1.value;
+      let su2= myform.su2.value;  
+      let res = parseInt(su1) - parseInt(su2);
+      alert("값: " + res);
+    }
+    function mul(){
+      let su1= document.myform.su1.value;
+      let su2= myform.su2.value; 
+      let res = parseInt(su1) * parseInt(su2);
+      alert("값: " + res);
+    }
+    function div(){
+      let su1= document.myform.su1.value;
+      let su2= myform.su2.value;  //document는 같이있을땐 생략가능 
+      let res = parseInt(su1) /  parseInt(su2);
+      alert("값: " + res);
+    }
+
+  </script>
+</head>
+<body>
+  <h2>사칙연산 계산하기</h2>
+  <form name="myform" method="get" action="#">
+    <p>첫번재 수?<input type="number" name="su1" autofocus required/></p> <!--autofocus를 쓰면 켰을때 커서가 거기로감 required는 전송누를때 아무것도 안적혀있으면 쓰라고뜨게하는거-->
+    <p>두번재 수?<input type="number" name="su2" required/></p> 
+    <p>
+      <input type="button" value="더하기" onclick="add()"/>
+      <input type="button" value="빼기" onclick="sub()"/>
+      <input type="button" value="곱하기" onclick="mul()"/>
+      <input type="button" value="나누기" onclick="div()"/>
+    </p>
+
+  </form>
+</body>
+</html>

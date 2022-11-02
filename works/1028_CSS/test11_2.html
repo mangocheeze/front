@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test11_2.html</title>
+  <style>
+    /* 자손선택자: 공백(Space)로 구분한다 */
+    ol ul{  /*ol밑에 ul*/
+      background-color: violet;
+    } 
+  </style>
+</head>
+<body>
+  <h1>선택자(자식/자손)</h1>
+  <h2>길동이가 좋아하는 음식 Best 5</h2>
+  <ol>
+    <li>짜장면</li>
+    <li>찐빵</li>
+    <li>과일
+      <ul>
+        <li>사과</li>
+        <li>배</li>
+        <li>바나나</li>
+      </ul>
+    </li>
+    <li>초코렛</li>
+    <li>피자</li>
+  </ol>
+  <hr/>
+  <h2>길동이가 좋아하는 음식 5가지</h2>
+  <ul>
+    <li>짜장면</li>
+    <li>찐빵</li>
+    <li>과일
+      <ol id="fruit">
+        <li>사과</li>
+          <ul>
+            <li>홍옥</li>
+            <li>국광</li>
+          </ul>
+          <li>배</li>
+          <li>바나나</li>
+      </ol>
+    </li>
+    <li>초코렛</li>
+    <li>피자</li>
+  </ul>
+  <hr/>
+</body>
+</html>

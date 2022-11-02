@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test5.html</title>
+</head>
+<body>
+  <h2>javascript 에러?</h2>
+
+  <script>
+    /*'나 " 상관없음 대신 앞뒤만 같게하면됨, 대소문자 구분함*/
+    document.write('1.이곳은 자바스크립트 안 입니다<br/>안녕!!!'); /*줄바꾸는거 <br/>*/ 
+    document.write('2.이곳은 자바스크립트 안 입니다');  
+    document.write('3.이곳은 자바스크립트 안 입니다');
+    /*에러 찾는법*/
+    alert("1.이곳은 메세지 출력입니다.\n안녕!!!"); /*브라우저에 메세지창 뜨게함/줄바꾸는건 :\n */
+    console.log("1.안녕!!!!");        /*개발자모드에서 콘솔에 뜸(값이 안오거나 에러뜰때 이클립스에서 system.out.print로 찍어보는거랑 똑같음)*/
+    alert("2.이곳은 메세지 출력입니다.\n안녕!!!"); 
+    console.log("2.안녕!!!!"); 
+    alert("3.이곳은 메세지 출력입니다.\n안녕!!!"); 
+    console.log("3.안녕!!!!"); 
+    alert("4.이곳은 메세지 출력입니다.\n안녕!!!"); 
+    console.clear();    /*콘솔창 너무 많이 뜰때 clear해줌*/
+    console.log("4.안녕!!!!"); 
+    alert("5.이곳은 메세지 출력입니다.\n안녕!!!"); 
+    console.log("clg는 console축약어입니다");  /*clg만치고 엔터누르면 나옴*/
+    alert("6.이곳은 메세지 출력입니다.\n안녕!!!"); 
+    console.clear();
+    console.log("ccl는 console.clear축약어입니다");
+  </script>
+</body>
+</html>
+
+<!-- 자바스크립트는 에러가 나면 전송이 안됨 그래서 웹만들때 에러가나면 무조건 첫번째로 프론트검사먼저하기(f12개발자모드) -->

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test7.html</title>
+  <script>
+    'use strict'; /*사용할 변수를 무조건 선언하고 쓰라는 명령어 - 이 명령어를쓰고 변수타입을 안쓰면 에러남*/
+
+    const su1= 100; /*const: 상수선언을 한거임(자바 static final이랑 똑같음)-값을 한번 넣으면 바꿀수없음*/
+    console.log("su1 : " + su1); /* +나 , 둘다사용가능*/
+    console.log(typeof(su1));   /*타입 알려줌: number*/
+
+    // su1= 200;
+    // su1= "서울";
+    // console.log("su1 : " + su1); 
+    console.log(typeof(su1));  /*타입: string*/ 
+    
+    var su2 = 200;  
+    /*자바스크립트에선 변수선언을 원래 안써도되는데 쓰려면 숫자던 문자던 변수선언을 var로 같이쓸수있음*/
+    /*var은 선언한걸 그대로 유지함 */
+    console.log("su2 : " + su2); 
+    console.log(typeof(su2));  
+
+    let su3 = 300;  /*var말고 let로 변수선언을 하게되면 블럭을 벗어나서 썼을때 에러를 내줌 그래서 let을쓰는게 더 좋음(안헷갈리니까)*/
+    {
+      console.log("su3 : " + su3);
+      console.log("1: ", su2 + su3);  /*500 나옴*/
+    }
+    console.log("2: ", su2 + su3);   /*변수를 var로 선언하면위에 블럭을 벗어나도 값이 똑같이 계산해줘서 500나옴*/
+
+
+  </script>
+</head>
+<body>
+  <h2>자바 스크립트 학습</h2>
+</body>
+</html>
+
+<!-- int string이란 변수타입이 없는대신 var 이나 let을 쓰면되는데 let을쓰는게 더좋음 var를쓰면 블럭을 벗어나서 써도 에러를 안냄 -->

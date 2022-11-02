@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test15.html</title>
+  <script>
+    'use strict'
+  
+    function calc(){
+      let res = eval(myform.insert.value);
+      myform.result.value = res;
+    }
+  </script>
+</head>
+<body>
+  <h2>계산</h2>
+  <form name="myform" method="get" action="#">
+    <p>
+      계산식 : <input type="text" name="insert" id="insert"/>
+    </p>
+    <p>
+      결과 : <input type="text" name="result" id="result" readonly/>
+    </p>
+    <p>
+      <input type="button" value="계산" xxonclick="calc()"/>
+    </p>
+  </form>
+</body>
+</html>

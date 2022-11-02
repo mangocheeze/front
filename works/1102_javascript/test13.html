@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test13.html</title>
+  <script>
+    'use strict';
+
+    function fChek(){  //function??? 
+      //백엔드 방식-백엔드는 name이 중요
+      // let mid = myform.mid.value; //myform에 있는 name을 넘겨준거임
+      // let pwd = myform.pwd.value;
+
+      //프론트방식-프론트는 id가중요
+      let mid = document.getElementById("mid").value; //myform에 있는 id를 넘겨준거임
+      let pwd = document.getElementById("pwd").value;
+
+      if(mid == ""){
+        alert("아이디를 입력하세요?");
+        myform.mid.focus();
+      }
+      else if(pwd == ""){
+        alert("비밀번호를 입력하세요?");
+        myform.pwd.focus();
+      }
+      else{
+        alert("회원 로그인 하러 갑니다");
+        myform.submit();
+      }
+      
+    }
+  </script>
+</head>
+<body>
+  <h2>회원 로그인</h2>
+  <form name="myform" method="get" ><!--위에서 확인하려고 get-->
+    <p>
+      <label for="mid">아이디</label> :
+      <input type="text" name="mid" id="mid" />
+    </p>
+    <p>
+      <label for="pwd">비밀번호</label> :
+      <input type="password" name="pwd" id="pwd" />
+    </p>
+    <p>
+      <input type="button" value="로그인" onclick="fChek()" />
+      <input type="reset" value="다시입력"/>
+    </p>
+  </form>
+</body>
+</html>

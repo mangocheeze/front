@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test9.html</title>
+  <script>
+    'use strict';
+    let atom=100;
+    console.log("atom : ", atom);
+    console.log("typeof(atom): ", typeof(atom));
+
+    function msg1(){
+      alert("atom = " + atom);
+      atom++; //메세지창에서 버튼을 누를때마다 누적되어서 증가함
+      console.log("atom : ", atom);
+    }
+
+    function msg2(atom){ //()안에 타입을 안써도되니까 그냥 변수만 넣으면됨
+      alert("atom = " + atom);
+      atom++;  //계속 500이찍힘 값을 atom에 500을줬으니까
+      console.log("atom : ", atom);
+    }
+
+    function msg3(mbc){
+      // kbs = 900; 선언을 안해주면 에러남
+      alert("atom = " + atom);
+      atom += mbc; //
+      console.log("atom : ", atom);
+    }
+  </script>
+</head>
+<body>
+  <h2>변수에 값을 담아서 전송하기</h2>
+  <p>mutable Data type : 변수가 값에 따라 변경되는것</p>
+  <p><input type="button" value="메세지1" onclick="msg1()"/></p> <!-- button은 onclik이 위에 다 실행후 실행함-->
+  <p><input type="button" value="메세지2" onclick="msg2(500)"/></p> <!-- 값 500을받음-->
+  <p><input type="button" value="메세지3" onclick="msg3(700)"/></p>
+  </html>

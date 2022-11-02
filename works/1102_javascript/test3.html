@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test3.html</title>
+  <script language="javascript"> 
+    document.write("안녕하세요...");
+
+    function atom() {/*function :함수적을때 쓰는 예약어*/
+      document.write("이곳은 atom 함수 안쪽입니다") /*이게 버튼을 누르면 나오는 화면(새 화면이뜸)*/
+    }
+
+
+      
+  </script>
+</head>
+<p>
+  <h2>자바스크립트 사용법</h2>
+
+  <p><input type="button" value="호출" onclick="atom()"/></p>  <!--버튼만들기/onclik이라는 이벤트가 발생/atom이라는 함수를 만들어달라=> 함수내용을 실행하세요(함수내용o)-->
+  <p><input type="button" value="호출2" onclick="atom2()"/></p> 
+
+  <script language="javascript"> 
+    document.write("반갑습니다...");
+
+    function atom2(){
+      alert("안녕!!!")  /*화면안바뀌고 메세지가 뜸*/
+    }
+  </script>
+</body>
+</html>

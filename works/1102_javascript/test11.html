@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test10.html</title>
+  <script>
+    'use strict';
+
+    function msg1(){
+      let su1 = prompt("수1를 입력하세요?");
+      document.write("<br/>su1 : ", su1);
+      let ans = confirm("작업을 계속하시겠습니까?"); 
+      document.write("<br/>ans: ", ans);
+
+      // if(ans == true){ //자바스크립트에선 비교는 문자던숫자던 다 ==(넘겨준값이 일치한가),===(넘어온 타입과 속성까지 완벽하게일치한가) (equals없음)
+      if(ans){ //16번줄이랑 같은의미
+        alert("작업을 계속합니다"); //작업을 계속하시겠습니까에서 확인 누르면 나오는 문구
+      }
+      else{
+        alert("수고하셨습니다"); //취소 누르면 나오는 문구
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>메세지를 통한 값의 입력</h2>
+  <p>값을 입력해보세요
+    <input type="button" value="값입력" onclick="msg1()"/>
+  </p>
+</body>
+</html>

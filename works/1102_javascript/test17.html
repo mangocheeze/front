@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test17.html</title>
+  <script>
+    'use strict';
+
+    function fCheck() {
+      let address = document.getElementById("address").value;
+
+      if(address.trim() == "") {
+        alert("주소를 입력하세요");
+        document.getElementById("address").focus(); //myform 에있는 id를 넘김 ???
+      }
+      else {
+        console.log("address : " + address);
+        // demo.innerText = address; //입력받은 내용그대로 보여줌(글자그대로)
+        // demo.innerHTML = address; // HTML 코드로 번역하려면(링크로 나오려면) 이렇게 써야함
+        demo.innerHTML = "<a href='http:// "+ address +" ' target='_blank'> "+ address+" </a> <input type='button' value='지우기' onclick='urlClear()'/>" ;  //<a href: http://www.></a>이런식으로 안쓰고 www.imbc.com 만 써도 링크나오게 하는법
+      } //앞에있는 address는 입력할때 주소, 뒤에있는 address 결과 띄워준 주소 //_blank:링크 새창에서 띄우기
+    }
+    //주소 썼던거 지우기
+    function urlClear(){
+      myform.address.value =""; //입력창지우기
+      demo.innerHTML =""; //demo지우기
+    }
+  </script>
+</head>
+<body>
+  <p>
+    이동할 주소를 입력후 이동버튼을 클릭하면 입력된 주소가
+    가상(demo)에 출력되어, 그 주소를 클릭하면 새창으로 이동합니다.
+  </p>
+  <hr/>
+  <form name="myform">
+    <div>
+      이동할 주소 : <input type="text" name="address" id="address" placeholder="이동할 주소를 입력하세요"/>
+      <input type="button" value="확인" onclick="fCheck()"/> <!-- 엔터로 하려면 submit을써야함 버튼은 onclik-->
+      <!-- <input type="reset" value="다시입력"/> -->
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test10.html</title>
+  <script>
+    'use strict';
+
+    function msg1(){
+      // let su1 = prompt("수1를 입력하세요?"); //alert말고 prompt쓰면 메세지창에서 입력할수있음
+      // su1 += 100; //form태그에서 입력받는건 무조건 문자로보니까 숫자를써도 문자로 인식.그래서형변환을해야함
+      // console.log("su1 : " + su1);
+      // document.write("<br/>su1 : ", su1);
+      let su2 = prompt("수2를 입력하세요?"); //alert말고 prompt쓰면 메세지창에서 입력할수있음
+      // let su3 = parseInt(su2) + 200; //parseInt : su2를 숫자로 형변환해줌/이제su2에 숫자만입력했을땐 문제없지만 su2입력할때 10+20 처럼 +,-같은 걸쓰면 연산을못해줌
+      let su3 = eval(su2) + 200; //그래서 eval을 써주면 계산기처럼 +,-같은것도 연산이됨/eval : 입력된문구가 수식문구로나온걸 계산함 계산기만들때 사용
+      console.log("su2: ", su2);
+      console.log("su3: ", su3);
+      document.write("<br/>su2 : ", su2);
+      document.write("<br/>su3 : ", su3);
+      let ans = confirm("작업을 계속하시겠습니까?"); //confirm은 메세지창에서 예,아니오(확인,취소) 버튼이나오고 예를 누르면 true값 아니오누르면 false값이나옴
+      document.write("<br/>ans: ", ans);
+      
+
+      // NAN에러 : 연산할수없는걸 연산했을때 뜸
+    }
+  </script>
+</head>
+<body>
+  <h2>메세지를 통한 값의 입력</h2>
+  <p>값을 입력해보세요
+    <input type="button" value="값입력" onclick="msg1()"/>
+  </p>
+</body>
+</html>
