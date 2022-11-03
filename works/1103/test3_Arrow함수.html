@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arrow Function(람다식)</title>
+  <script>
+    'use strict';
+
+    let fCheck0 = function() { 
+      alert("익명함수를 호출하셨습니다");
+    }
+
+    //익명함수를 Arrow Function으로 바꿀수있음(function을 화살표로바꿔서 ()뒤에 표시)
+    let fCheck1 = () => {
+      alert("Arrow 함수를 호출하셨습니다");
+    }
+ 
+    let fCheck2 = () => alert("Arrow 함수를 호출하셨습니다"); //{}빼도됨:중괄호는 2줄이상 명령쓸때사용(주로 반복문쓸때)
+  </script>
+</head>
+<body>
+  <h2>Arrow Function</h2>
+  <p>
+    <input type="button" value="익명함수 호출" onclick="fCheck0()" />
+    <input type="button" value="Arrow함수 호출1" onclick="fCheck1()" />
+    <input type="button" value="Arrow함수 호출2" onclick="fCheck2()" />
+  </p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test18_2.html</title>
+  <script>
+    'use strict';
+    function fCheck(){
+      let gender;
+      
+      //체크했는지 안했는지로 알아보기
+      //name으로 하는이유 id는 남 여 다르게 주니까 같은 name으로줌(id로써도되긴함)
+      if(document.getElementsByName("gender")[0].cheked) gender ='남'; //check가 0번째가 되어있으면 남 
+      if(document.getElementsByName("gender")[1].cheked) gender ='여'; //check가 1번째에 되어있으면 여
+
+      // demo.innerText = gender;
+      if(gender == '남'){
+        demo.innerHTML = "<font color='blue'><b> "+gender+" </b></font>"; //값이(남or 여) 파란색으로 나옴
+      }
+      else{
+        demo.innerHTML = "<font color='red'><b> "+gender+" </b></font>"; 
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>라디오 버튼값 체크하기</h2>
+  <form name="myform">
+    <div>
+      <input type="radio" name="gender" id="gender1" value="남" checked/>남자  <!-- 여기서 value는 버튼을 눌렀을때 나오는 값 (남,여) 이게 넘어가는거임-->
+      <input type="radio" name="gender" id="gender2" value="여"/>여자
+      <input type="button" value="값체크" onclick="fCheck()" />
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</body>
+</html>

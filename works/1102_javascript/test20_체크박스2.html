@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>체크박스연습2</title>
+</head>
+  <!-- 갯수를 모를경우도있으니까 i<5대신 배열의 길이로 구하고 변수로 빼는게 좋으니까 빼서하는게좋음
+      근데  let hobbyCount = document.getElementsByName("hobby").length; 이문장이 반복되니까 전역변수로 써서 밖으로 빼서 둘다 적용하게하면 
+      문법상 에러는 없는데 값이 출력이안됨
+      (for문이 돌아가지않음 -왜?스크립트는 위에서아래로 순차적으로 읽어서 본문을 먼저 읽는게아니라 let hobbycount= 를먼저 읽어서 count가 0이됨)
+      그래서 script위치를 아래로 바꿔줌
+  -->
+  <body>
+    <h2>체크박스 연습2</h2>
+    <form name="myform">
+      <p><b>취미를 선택하세요</b><br/><br/> 
+        <input type="checkbox" name="hobby" id="hobby1" value="등산"/>등산 &nbsp;
+        <input type="checkbox" name="hobby" id="hobby2" value="낚시"/>낚시 &nbsp;
+        <input type="checkbox" name="hobby" id="hobby3" value="볼링"/>볼링 &nbsp;
+        <input type="checkbox" name="hobby" id="hobby4" value="바둑"/>바둑 &nbsp;
+        <input type="checkbox" name="hobby" id="hobby5" value="수영"/>수영 &nbsp;
+        <button type="button" onclick="fCheck()">출력</button>
+      </p>
+    </form>
+    <hr/>
+    <div id="demo"></div>
+    
+    <script>
+      'use strict';
+      let hobbyCount = document.getElementsByName("hobby").length;
+  
+      function fCheck() {
+        console.log("hobbyCount :" + hobbyCount);
+        let hobby = '';
+        for(let i=0; i<hobbyCount; i++) {
+          if(document.getElementsByName("hobby")[i].checked) {  //document.getElementsByName("hobby") 가 한덩어리라고생각 자바에서 su[i]의 su임
+            hobby += document.getElementsByName("hobby")[i].value + "/"; 
+            //hobby에 누적시키는이유는: 체크한거를 오른쪽으로 -> 누적시켜서 출력하는거니까 '체크한거를 hobby에 누적시킴' 
+          }
+        }
+
+        //마지막 출력되는거에 / 안붙이는법
+        /*자바에서처럼 substring으로 (0,5)면 0~4를꺼내오는거임 1/2/3/일때 :/까지 포함해서 글자로인식하는데 그러면 0123456 글자니까 substring(0,5)로 하면됨
+          몇개꺼낼지 정해진게 아니니 hobby.length로 hobby의 길이만큼에서 -1 하면됨
+        */
+        hobby = hobby.substring(0, hobby.length - 1); //+=로 안쓰고 = 로쓰는이유: 누적시키는게아니라서
+        //출력창에서 지우기
+        demo.innerHTML = hobby + " <input type='button' value='지우기' onclick='fClear()'/>";
+    }
+  
+      function fClear() {
+        // let hobbyCount = document.getElementsByName("hobby").length;
+        for(let i=0; i<hobbyCount; i++) {
+          document.getElementsByName("hobby")[i].checked = false; //false인이유: clear를 누르면 flase로 들어가니까 체크를 해제
+        }
+        demo.innerText = "";
+      }
+    </script>
+  </body>
+  </html>
