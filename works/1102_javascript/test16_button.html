@@ -7,11 +7,11 @@
   <title>test16.html</title>
   <script>
     function fCheck() {
-      alert("안녕!");
+      alert("안녕!"); //버튼 누르면 안녕!창이뜸
     }
   </script>
   <style>
-    .btn {
+    .btn { /*버튼 css*/
       width: 100px;
       height: 100px;
       background-color: gold;
@@ -23,7 +23,7 @@
 </head>
 <body>
   <h2>버튼편집하기</h2>
-  <p><input type="button" value="1" onclick="fCheck()" class="btn"></p>
+  <p><input type="button" value="1" onclick="fCheck()" class="btn"></p> <!--1번 버튼을 누르면 fCheck함수를 호출-->
   <p><button type="button" onclick="fCheck()" class="btn">버튼2</button></p>
 </body>
 </html>

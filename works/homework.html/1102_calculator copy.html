@@ -1,0 +1,83 @@
+<!-- 그리드 이용 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1102_calculator.html(javascript이용 계산기만들기)</title>
+  <script>
+    'use strict';
+    let su ="";
+    function su(num){
+      let res= myform.demo.value;
+      if(aaa="AC"){
+        myform.demo.value=res;
+        
+      }
+    }
+  
+  </script>
+  <style>
+    body{
+      margin: 0px;
+      padding: 0px;
+    }
+    .btn{
+      width: 100px;
+      height: 100px;
+      background-color: blueviolet;
+      border: 1px solid black;
+      border-radius: 6px; /*모서리*/
+      font-size: 40pt;
+      margin: 15px; /*버튼 margin*/
+    }
+
+    .container{ /*계산기*/
+      background-color: rgb(230, 185, 248);
+      width: 600px;
+      margin: 20px auto; /*계산기 가운데정렬*/
+      height: 800px;
+
+      display: grid;
+      grid-gap: 1rem;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      border-radius: 20px;
+
+    }
+
+    #demo{
+      background-color: black;
+      color: aliceblue;
+      width: auto;
+      height: 150px;
+      grid-row: 1;
+      grid-column: 1/5;
+      border-radius: 20px 20px 0px 0px;
+      font-size: 70px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div><input type="text" class="demo" id="demo" readonly/></div> <!-- 결과 나오는곳(출력창)-->
+    <div><input type="button" value="1" onclick="su(1)" class="btn" /></div>
+    <div><input type="button" value="3" onclick="su(3)" class="btn" /></div>
+    <div><input type="button" value="3" onclick="su(3)" class="btn" /></div>
+    <div><input type="button" value="*" onclick="mul()" class="btn"/></div>
+    <div><input type="button" value="4" onclick="su(4)" class="btn"/></div>
+    <div><input type="button" value="5" onclick="su(5)" class="btn"/></div>
+    <div><input type="button" value="6" onclick="su(6)" class="btn"/></div>
+    <div><input type="button" value="/" onclick="div()" class="btn"/></div>
+    <div><input type="button" value="7" onclick="su(7)" class="btn"/></div>
+    <div><input type="button" value="8" onclick="su(8)" class="btn"/></div>
+    <div><input type="button" value="9" onclick="su(9)" class="btn"/></div>
+    <div><input type="button" value="AC" onclick="reset()" class="btn"/></div>
+    <div><input type="button" value="0" onclick="su(0)" class="btn"/></div>
+    <div><input type="button" value="+" onclick="add()" class="btn"/></div>
+    <div><input type="button" value="-" onclick="sub()" class="btn"/></div>
+    <div><input type="button" value="=" onclick="enter()" class="btn"/></div>
+  </div>
+</body>
+</html>

@@ -7,26 +7,27 @@
   <title>test9.html</title>
   <script>
     'use strict';
-    let atom=100;
-    console.log("atom : ", atom);
+    let atom=100;  //처음 atom은 100
+
+    console.log("atom : ", atom); 
     console.log("typeof(atom): ", typeof(atom));
 
     function msg1(){
-      alert("atom = " + atom);
-      atom++; //메세지창에서 버튼을 누를때마다 누적되어서 증가함
+      alert("atom = " + atom); 
+      atom++; //메세지창에서 버튼을 누를때마다 100부터 1씩 누적되어서 증가함
       console.log("atom : ", atom);
     }
 
-    function msg2(atom){ //()안에 타입을 안써도되니까 그냥 변수만 넣으면됨
+    function msg2(atom){ //()안에 아래서 500으로 넘겨줬으니까 얘도 변수로 받기?/타입을 안써도되니까 그냥 변수만 넣으면됨
       alert("atom = " + atom);
       atom++;  //계속 500이찍힘 값을 atom에 500을줬으니까
       console.log("atom : ", atom);
     }
 
     function msg3(mbc){
-      // kbs = 900; 선언을 안해주면 에러남
-      alert("atom = " + atom);
-      atom += mbc; //
+      // kbs = 900; 타입 선언을 안해주면 에러남
+      alert("atom = " + atom); //처음 위에서 선언한 let atom=100;값 즉 atom=100이니까 1번누르면 100이찍힘
+      atom += mbc; // 2번째 누르면 위에 100에다가 + mbc값 700이누적되어 800이나옴 그뒤론계속 나온값에 +700을 누적시켜나옴
       console.log("atom : ", atom);
     }
   </script>

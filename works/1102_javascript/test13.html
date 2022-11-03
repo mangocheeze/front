@@ -8,7 +8,7 @@
   <script>
     'use strict';
 
-    function fChek(){  //function??? 
+    function fChek(){  
       //백엔드 방식-백엔드는 name이 중요
       // let mid = myform.mid.value; //myform에 있는 name을 넘겨준거임
       // let pwd = myform.pwd.value;
@@ -19,7 +19,7 @@
 
       if(mid == ""){
         alert("아이디를 입력하세요?");
-        myform.mid.focus();
+        myform.mid.focus(); //아이디를 입력하라고한뒤 커서깜빡이는거를 아이디입력칸에 띄움
       }
       else if(pwd == ""){
         alert("비밀번호를 입력하세요?");

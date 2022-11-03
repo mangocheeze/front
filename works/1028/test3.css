@@ -1,0 +1,7 @@
+/* 외부 스타일에서 이걸 불러옴 */
+p{font-size: 25pt}
+
+div{ 
+  font-size: 25px;
+  color:blueviolet;
+}  

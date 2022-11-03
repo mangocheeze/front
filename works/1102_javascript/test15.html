@@ -9,8 +9,8 @@
     'use strict'
   
     function calc(){
-      let res = eval(myform.insert.value);
-      myform.result.value = res;
+      let res = eval(myform.insert.value); //document안의 myform안에엤는 insert의 값을 사칙연산계산한걸 변수res에 담겠다
+      myform.result.value = res; //위에서 담은 변수 res를 결과창에 담겠다
     }
   </script>
 </head>
@@ -21,10 +21,10 @@
       계산식 : <input type="text" name="insert" id="insert"/>
     </p>
     <p>
-      결과 : <input type="text" name="result" id="result" readonly/>
+      결과 : <input type="text" name="result" id="result" readonly/> <!--readonly쓸수는 없고 읽게만함-->
     </p>
     <p>
-      <input type="button" value="계산" xxonclick="calc()"/>
+      <input type="button" value="계산" onclick="calc()"/> <!--calc는 계산이라는뜻의 줄임말을 그냥임의로준거임(함수이름은 자유)-->
     </p>
   </form>
 </body>

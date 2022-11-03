@@ -1,3 +1,4 @@
+<!-- 콘솔창에뜸 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,9 +9,9 @@
   <script>
     'use strict'; /*사용할 변수를 무조건 선언하고 쓰라는 명령어 - 이 명령어를쓰고 변수타입을 안쓰면 에러남*/
 
-    const su1= 100; /*const: 상수선언을 한거임(자바 static final이랑 똑같음)-값을 한번 넣으면 바꿀수없음*/
+    const su1= 100; /*const: 상수선언을 한거임(자바 static final이랑 똑같음)-값을 한번 넣으면 바꿀수없음(const쓰면 이제 su1은 무조건 100이들어가야함)*/
     console.log("su1 : " + su1); /* +나 , 둘다사용가능*/
-    console.log(typeof(su1));   /*타입 알려줌: number*/
+    console.log(typeof(su1));   /*콘솔창에서 타입 알려줌: number*/
 
     // su1= 200;
     // su1= "서울";
@@ -19,7 +20,7 @@
     
     var su2 = 200;  
     /*자바스크립트에선 변수선언을 원래 안써도되는데 쓰려면 숫자던 문자던 변수선언을 var로 같이쓸수있음*/
-    /*var은 선언한걸 그대로 유지함 */
+    /*var은 블럭밖에다가 실수로 써도 에러안나고 선언한걸 그대로 유지함 */
     console.log("su2 : " + su2); 
     console.log(typeof(su2));  
 
