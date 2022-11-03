@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>숫자함수</title>
+</head>
+<body>
+  <h2>숫자함수 연습</h2>
+  <hr/>
+  <p><div id="demo"></div></p>
+  <hr/>
+  <p>round(): 반올림</p>
+  <p>ceil() : 올림</p>
+  <p>floor(): 내림</p>
+  <p>trunc(): 잘라내기(버리기)</p>
+  <p>pow() : 지수승</p>
+  <p>sqrt() : 제곱근</p>
+  <p>abs(): 절대값</p>
+  <p>min() : 최소값</p>
+  <p>max() : 최대값</p>
+  <p>random() : 난수</p>
+  <p>toFixed(n):소수이하를 n번째까지 구한다</p>
+  <p></p>
+  <p></p>
+  <p></p>
+  <p></p>
+
+
+  <script>
+    'use strict';
+    let su1 = 3.15;
+    let su2 = -3.15;
+    let num;
+
+    // let num = Math.round(su1); //su를 소수이하 둘째자리에서 반올림함
+
+    num = Math.ceil(su1);
+    num = Math.ceil(su2);
+
+    num = Math.floor(su1);
+    num = Math.floor(su2); //-3.15를 내리면 -4
+    
+    num = Math.trunc(su1);
+    num = Math.trunc(su2);
+
+    num=Math.pow(2,5); //2의 5승
+    
+    num=Math.sqrt(25); //제곱근 (루트 25 =5니까)
+
+    num=Math.abs(su2); //절대값(-사라짐)
+
+    num=Math.min(su1,su2); 
+    num=Math.min(su1,su2,123,-567); //네개의수 중 최소값
+    num=Math.max(su1,su2,123,-567); //네개의수 중최대값
+
+    num = Math.random(); //0<= num <1 사이의 실수형 난수
+    num =(Math.random()*9 + 1).toFixed(0); //1~10까지의 난수?
+    num =Math.floor(Math.random()*10)+1; //1~10까지의 난수? (위랑결과같음)
+    num =Math.floor(Math.random()*45)+1; //1~45까지의 난수?
+
+
+    demo.innerText = num;
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!-- 콘솔에 띄움 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열연습</title>
+  <script>
+    'use strict';
+
+    /*배열선언 : 자바 =>int[] atom = new int [3];
+                자바스크립트 => new Array(), ['값1','값2',...];
+    */
+    //new Array() 방법
+    const arr1 = new Array(); //생성하고 변수 arr1에 담음
+    console.log("arr1 : " + arr1); //콘솔에 띄움
+    console.log("===================");
+    //['값1','값2',...] 방법
+    const arr2 = ["사과","배","바나나","딸기","토마토"];
+    console.log("arr2 : " + arr2); 
+    console.log("arr2의 길이 : " + arr2.length);
+    console.log("0. : " + arr2[0]);
+    console.log("2. : " + arr2[2]);
+    console.log("4. : " + arr2[4]);
+    console.log("===================");
+    //
+    for(let i=0; i< arr2.length; i++){
+      console.log("arr2["+i+"]= " + arr2[i]);
+    }
+
+    // arr2배열의 마지막 자료를 출력하세요?
+    console.log("arr2배열의 마지막요소 : " + arr2[arr2.length-1]);
+    console.clear(); //콘솔에 뜬거 삭제
+
+    /*향상된 for문 : 자바=> for(타입 새로운변수명 : 배열을담은변수명)
+              자바스크립트=> for(타입 새로운변수명 of 배열을 담은변수명)
+    */
+    let cnt =0;
+    for(let arr of arr2){  //for(타입 새로운변수명 of 배열을 담은변수명)
+      console.log("arr["+cnt+"] = " + arr);
+      cnt++;
+    }
+    console.clear();
+
+    //forEach문을 이용한 반복출력: 객체명.forEach();
+    //arr2.forEach(function(arr, index, arr2) { //이렇게 원랜 3개인자들어감, 순차적으로하나씩 차례대로 꺼낼거면 index, arry생략가능
+
+    arr2.forEach(function() {//forEach();먼저쓰고forEach문 괄호안에 여러개쓸때는 기능으로 나타내는거라 function()을쓰고 {}를 넣음
+      console.log("값 : " + "/");
+    });
+    console.log("~~~~~~~~~~~~~~~~~~");
+    arr2.forEach(function(arr) {
+      console.log(arr + "/");
+    });
+
+    console.log("##################");
+    //익명함수를 Arrow함수로 변형해보자
+    arr2.forEach((arr) => {
+      console.log(arr + "/");
+    });
+
+    console.log("%%%%%%%%%%%%%%%%%%");
+    //익명함수를 Arrow함수로 변형해보자
+    arr2.forEach((arr) => console.log(arr + "/"));
+  
+    console.log("///////////////////");
+    //익명함수를 Arrow함수로 변형해보자
+    arr2.forEach((arr,index) => console.log(index + ":" + arr + "/"));
+     //인덱스번호같이출력(index는 예약어아님 앞에 ((arr,i)라고 썼으면 뒤에도 i + ":" 이렇게쓰면됨))
+
+  </script>
+</head>
+<body>
+  <h2>배열연습</h2>
+</body>
+</html>

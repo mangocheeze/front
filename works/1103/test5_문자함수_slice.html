@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자함수연습(회원가입폼 유효성검사에 필요)</title>
+</head>
+<body>
+  <h2>문자함수연습</h2>
+  <pre>
+    0         1         2
+    0123456789012345678901234567890
+    ABCDEFGHIJKLMNOPQRSTUVWXYZABCopq
+                    0987654321    
+
+    <!-- 인덱스는 0부터시작
+    자바스크립트에선 substring보다 slice 더 많이씀-->
+  </pre>
+
+  <hr/>
+  <p><div id="demo"></div></p>
+  <hr/>
+  <p>length : 객체(문자열)의 길이</p>
+  <p>slice(a,b) : 지정된 문자열(a에서 b앞까지)을 추출해준다.</p> <!-- (substring하고비슷)-->
+  <p>substring(a,b) : 지정된 문자열(a에서 b앞까지) 을 추출해준다</p>
+  <p>substr() : </p> 
+  <p>replace(a,b) : a를 b로 치환</p>
+  <p>replaceAll(a,b) : a를 b로 모두 치환</p>
+  <p>toUpperCase() : 대문자로 치환</p>
+  <p>toLowerCase() : 소문자로 치환</p>
+  <p>concat(a,b) : a와 b를 결합한다</p>
+  <p>trim() : 양쪽 공백을 삭제한다</p>
+  <p>trimStart() : 앞쪽 공백만을 삭제한다</p>
+  <p>trimEnd() : 뒤쪽 공백만을 삭제한다</p>
+  <p>replaceAll() : 모든공백을 삭제한다 </p>
+  <p>charCodeAt() : ()인덱스번째의 아스키코드출력</p> <!--자바에서 charAt()랑비슷-->
+  <p>split() : 구분자를 기준으로 잘라준다.잘라진 각각의 요소는 배열로 저장된다</p>
+  <p>indexOf : 특정문자의 위치값을 찾아준다(찾는값이 없으면 -1출력)</p>
+  <p>lastIndexOf :특정문자의 위치를 뒤에서부터 찾아서 위치값을 찾아준다</p>
+  <p>search() : 특정문자의 위치값을 찾아준다(찾는값이 없으면 -1출력)</p>
+  <p>match() : 찾는 문자열이 있으면 '문자열'을 반환, 없으면 '공백'을반환  </p>
+  <p>includes() : 찾는 문자열을 포함하고있으면 true,없으면 false를 반환한다</p>
+
+  <script> //내린이유 : demo에 출력해야되는데 demo보다 위에있으면 인식을못하니까
+  'use strict';
+  let text ="ABCDEFGHIJKLMNOPQRSTUVWXYZABCopq";
+  let text2 ="  ABC  BCDEF  GHI  JKLMNOPQRSTUVWXYZ  ABC  opq  ";
+
+  // document.getElementById("demo").innerHTML = text; 원랜 이렇게쓰는게 맞음
+  demo.innerText = text.length;
+  
+  // let str = text.slice(10,15); //10번째부터 5개를 추출함
+  // let str = text.slice(-10); //뒤에서부터 10개문자를 추출함
+  let str = text.slice(-10,-5); //뒤에서부터 10번째부터 뒤에서부터 5번째앞에글자까지 추출함
+
+  str = text.substring(10,15); //10번째부터 15번째 앞까지 추출
+  str = text.substring(10); 
+  str = text.substr(10); //substr 써도 똑같이나옴
+  str = text.substr(-10); //뒤에서부터 10개문자를 추출함 text.slice(-10)이랑 똑같음 그러나 slice쓰기
+  
+  str=text.replace("OPQR","ABC"); //OPQR을 찾아서 ABC로 치환(바꿔라)
+  str=text.replace("opqr","ABC"); // 대소문자구문함
+  str=text.replace("ABC","OPQ"); // 
+  str=text.replaceAll("ABC","OPQ"); // 모두치환
+
+  str=text.toUpperCase(); //전부 대문자로 치환
+  str=text.toLowerCase(); //전부 소문자로 치환
+
+  str=text.concat("안녕!"); //안녕!이 영어뒤에추가됨
+  str="안녕".concat(text); //안녕이 앞에추가됨
+  str="안녕".concat(text)+"하세요"; // 문자만 쓸경우 이렇게 써도됨
+
+  str=text2.trim() + "하세요"; //공백사라짐 (하세요 쓴이유는 뒤에 공백확인하려고)
+  str=text2.trimStart() + "하세요"; //앞쪽공백만 삭제
+  str="안녕"+text2.trimEnd() + "하세요"; //뒤쪽 공백만삭제
+  str="안녕"+text2.replaceAll(" ","") + "하세요"; //모든공백삭제
+  
+  str=text.charAt(0); //문자열이 들어간걸 인덱스0번 한개만 잘라서 넣어줌
+  str=text.charCodeAt(0); //0번째의 아스키코드를 출력
+
+  // str=text[0];
+  // text[0]="9"; 될줄알았는데 안됨 
+
+  let strArr=text.split("B"); //지정된 문자대신에 , 로구분한다(B를기준으로앞뒤자름)
+  let temp="";//누적하니까 공백으로줌
+  for(let item of strArr){
+    console.log(item);
+    temp += item + "/"
+  }
+  // demo.innerText = temp; //위의 값출력
+  
+  str= text.indexOf("B"); //B의 인덱스 위치
+  str= text.lastIndexOf("B"); //뒤에서부터 찾은 B의 인덱스 위치
+
+  str = text2.search("BCD"); //BCD 문자 위치값을찾아줌
+  str=text2.match("B CD");  //찾는문자열이 B뒤에 공백이 붙어서 없음 =>공백반환 
+  str=text2.includes("B CD"); //찾는 문자열이 없으면 false반환
+
+  let price = 100; //가격
+  let vat = 0.25;  //부가가치세
+  let total = price * (1 + vat);
+  str = "총금액 : " + total;
+  str = `총금액 : ${price * (1 + vat)} ` ; // ""대신에 ``(키보드에 물결아래)넣어서했음.?????총금액안에 계산공식을 그대로 놓고싶을때 
+
+  
+  demo.innerText = str;
+  </script>
+</body>
+</html>
