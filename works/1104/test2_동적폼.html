@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적폼</title>
+  <script>
+    'use strict';
+    let newText = "";
+    let idx = 0;
+
+    /*//1.입력폼 1개추가하기
+    function inputBox() {
+      let newText = '<input type="text" name="product" id="product" />';//바깥쪽이 작은따옴표면 안쪽이 큰따옴표 안쪽이 작은따옴표면 바깥쪽은 작은따옴표(짝이맞아야함)
+      demo.innerHTML = newText;
+    }
+    */
+
+    /*//2.클릭할때마다 입력폼추가하기
+    function inputBox() {
+      newText += '<input type="text" name="product" id="product" /><br/>'; //<>내용이 누적개념으로 가야함 누적하려면 전역변수로 만들어줘야함 그래서 let newText를 전역변수로빼줌
+      demo.innerHTML = newText;
+    }
+    */
+  
+    /*// 3.클릭할때마다 입력폼 추가하기('지우기'버튼추가)
+    function inputBox() {
+      idx++;
+      newText += idx + '.<input type="text" name="product" id="product" /> &nbsp;'; //&nbsp:공백
+      newText += "<input type='button' value='"+idx+".삭제' onclick='deleteBox()' /><br/>";
+      demo.innerHTML = newText;
+    }
+    */
+
+    /*
+    //입력창추가하고 부분삭제하고 다시 입력창추가하면 지웠던부분이 다시 생긴뒤 그뒤에 추가됨
+    // 4.클릭할때마다 입력폼 추가하기('지우기'버튼추가) : 각 TextField마다 고유한 id를 지정한다 (고유아이디안주면 지울수가없음)
+    function inputBox() {
+      idx++;
+      newText += '<div id="proTxt'+idx+'">'; //얘도 아이디를 줘야함 아이디를 지정해서 지워줘야하니까
+        newText += idx + '.<input type="text" name="product" id="product'+idx+'" /> &nbsp;';  //idx를 따당해주면 아이디를 지정하는거임
+        newText += "<input type='button' value='"+idx+".삭제' onclick='deleteBox("+idx+")' /><br/>"; //onclick에 삭제버튼 클릭스 동적텍스트박스삭제할때 idx로지워야하니까 idx따당으로 보냄
+        newText += '</div>'; //div로 둘러싸주는거임
+        demo.innerHTML = newText;
+    }
+    */
+    
+
+    //입력창추가하고 부분삭제한뒤 다시 입력창추가하면 뒷부분에 새로 추가함 
+    // 5.클릭할때마다 입력폼 추가하기('지우기'버튼추가) : 각 TextField마다 고유한 id를 지정한다.(삭제후 추가필드에 대한 처리)
+    function inputBox() {
+      idx++;
+      newText = '<div id="proTxt'+idx+'">';
+      newText += idx + '.<input type="text" name="product" id="product'+idx+'" /> &nbsp;';
+      newText += "<input type='button' value='"+idx+".삭제' onclick='deleteBox("+idx+")' /><br/>";
+      newText += '</div>';
+      demo.innerHTML += newText; //기존에 뿌린걸 다시 가져옴
+    }
+    //6.삭제버튼 클릭시 동적텍스트박스 삭제하기
+    function deleteBox(idx) {
+      let proTxt = "proTxt" + idx; //ex. 3번버튼을 누르면 3번을 지칭함
+      let item = document.getElementById(proTxt); //따옴표가 없는proTxt는 변수명 따옴표가 있는건 아이디
+      item.parentNode.removeChild(item); //나의 한칸위를 부모(parentNode)이고 내려다보는 자식(removeChild)을 지우는거임
+    }
+    function reloadCheck() { //새로고침명령
+      idx = "";
+      location.reload();
+    }
+
+  </script>
+</head>
+<body>
+  <h2>입력창 추가(동적폼)</h2>
+  <form name="myform"> <!--폼이름은 꼭myform 안써도됨 마음대로-->
+    <p>
+      <input type="button" value="입력창추가" onclick="inputBox()"/>
+      <input type="button" value="입력창모두제거" onclick="reloadCheck()"/> <!--location.href : 이동하는명령(많이씀!!!) .reload() :새로고침명령-->
+    </p>
+    <div id="demo"></div>
+  </form>
+</body>
+</html>

@@ -36,7 +36,7 @@
       return false;
     }
 
-    const emailCheck =/[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[a-zA-Z]{3}/g;
+    const emailCheck =/[a-zA-Z0-9_]+@[a-zA-Z0-9]+\.[a-zA-Z]+/g; //+는 한글자이상 넣어라 라는뜻 * 는 0개이상(여러개) ?는 한(1)문자
     if(email.trim() == ""){
       alert("이메일을 입력하세요");
       return false;
