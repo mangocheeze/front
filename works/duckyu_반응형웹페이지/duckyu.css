@@ -16,7 +16,7 @@ ul li{
   list-style: none;
 }
 a{
-  text-decoration: inherit;
+  text-decoration: inherit;/*선으로 텍스트 꾸미는걸 부모요소 속성값을 상속받음*/
   color: inherit;
 }
 
@@ -45,7 +45,7 @@ a{
 .header1 a{  /*타이틀바의 제목(로고) 링크 디자인*/
   color: #ff0;
   font-size: 2em;
-  text-shadow: 1px 2px 1px #000;
+  text-shadow: 1px 2px 1px #000; /*그림자*/
 }
 
 #mainNav{ /*네비게이션 (메뉴) 바 디자인*/
@@ -69,7 +69,7 @@ a{
 }
 
 #mainNav a{
-  display: block; /*바깥쪽으로 나가게?*/
+  display: block; /*다른엘리먼트 줄바꿈시켜서 줄 혼자만 차지하게함*/
   color: #fff;
   font-weight: bolder;
 }
