@@ -17,7 +17,7 @@
       while(i < 100) {
         i++;
         tot += i;
-        if((i % 10) == 0) {
+        if((i % 10) == 0) { //i가 10으로 나눴을때 0이되려면 10의배수여야함
           document.write("<div style='margin:5px'>1 ~ " + i + " : " + tot + "</div>");
     }
   }
@@ -28,7 +28,7 @@
 <p><br/></p>
 <div class="container">
   <h2>while문 연습</h2>
-  <p>1~10까지 10항씩마다 합계를 출력하시오</p>
+  <p>1~100까지 10항씩마다 합계를 출력하시오</p>
   <p><input type="button" value="10항씩출력" onclick="fCheck()" class="btn btn-secondary"/></p>
 </div>
 <p><br/></p>

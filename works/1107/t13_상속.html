@@ -1,3 +1,4 @@
+<!-- console에 출력-->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -5,13 +6,13 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Class(객체) 상속사용예제</title>
-  <script src="t13.js"></script>
+  <script src="t13.js"></script> <!--외부 javascript -->
   <script>
     'use strict';
 
-    class ChildClass extends Member {}
+    class ChildClass extends Member {} //Member클래스를 상속한다
 
-    let childClass = new ChildClass("홍길동",25,"빨강");
+    let childClass = new ChildClass("홍길동",25,"빨강"); //ChildClass 생성한걸 변수 childClass에 담음
     console.log("성명: " + childClass.name);
     console.log("나이: " + childClass.age);
     console.log("좋아하는색: " + childClass.color);

@@ -9,17 +9,17 @@
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <!-- 이 부트스트랩은 처음 도큐먼트에만 적용 다시하기 누르면 부트스트랩이 적용이안됨(폼이 달라지면 적용 x) -->
+  <!-- 이 부트스트랩은 처음 도큐먼트에만 적용, 다시하기 누르면 부트스트랩이 적용이안됨(폼이 달라지면 적용 x) -->
   <script>
     'use strict';
 
     function fCheck(){
-      let jumsu = parseInt(document.getElementById("jumsu").value); //문자라 숫자로 바꾸려고 형변환
+      let jumsu = parseInt(document.getElementById("jumsu").value); //자바스크립트에선 숫자나 문자 다 문자로취급이라 숫자로 바꾸려고 형변환
       let grade;
-      let jum = parseInt(jumsu / 10);
+      let jum = parseInt(jumsu / 10); 
 
       switch(jum){
-        case 10: //jum에서 10으로 나눈거니까 100점을 10으로 나누면 10이되니까 여기에 걸림(10으로 안나눠주면 100,98,97..다써줘야함)
+        case 10: //jum에서 10으로 나눈거니까 100점을 10으로 나누면 10이되니까 여기에 걸림(jum을 jumsu/10을 안하면 case 100:,98:,97:..다써줘야함)
         case 9:  //95를 10으로 나눠주면 9.5가되는데 parseInt로 씌워줘서 9가나와 여기에 걸림
           grade = 'A';
           break;

@@ -27,13 +27,15 @@
     <input type="button" value="그림 Over/Out" 
       onmouseover="document.getElementById('demo').style.display='none'"  
       onmouseout="document.getElementById('demo').style.display='block'"/>
-      <!-- onmoseover: (마우스를 댔을때) none() 그림 사라지게함 -->
+      <!-- onmoseover(마우스를 버튼에 가져다 댔을때):  none() 그림 사라지게함 -->
+      <!-- onmouseout(마우스를 버튼에서 땠을때) :block() 그림다시 생김 -->
     <img src="../../images/btn1.jpg" 
       onmouseover="src='../../images/btn1o.jpg'"
       onmouseout="src='../../images/btn1.jpg'"
       onclick="alert('그림을 클릭하셨습니다.');"
-      style="cursor:pointer"/>
-      <i class ="fas fa-coffee"></i> <!--아이콘 -->
+      style="cursor:pointer"/> <!--코드 길어서 한줄에 안쓰고 엔터쳐서 내린거임-->
+
+      <i class ="fas fa-coffee"></i> <!--아이콘(커피잔모양) -->
 
   </p>
   <hr/>

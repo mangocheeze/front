@@ -10,7 +10,7 @@ class Member {
     this.color = color;
   }
 
-  // getters 생성
+  // getter 생성
   get name() {
     return this._name;
   }
@@ -21,6 +21,7 @@ class Member {
     return this._color;
   }
 
+  //setter생성
   set name(name) {
     this._name = name;
   }
