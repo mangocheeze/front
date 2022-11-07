@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class(객체) 선언/사용 예제</title>
+  <script>
+    'use strict';
+
+    // 객체 생성하기( new 연산자)
+    let obj = new Object(); //객체생성
+
+    obj.name = "홍길동"; //여기서 name은 자바에서의 필드
+    obj.age = 25;
+    obj.gender = true; //성별을 논리형으로 넣음 
+    obj.hobby = ['야구','수영','등산'];
+
+    console.log('obj객체 : ' + obj); // obj는 객체다라는뜻의 [object Object]옴
+
+    console.log("obj객체의 이름: " + obj.name);
+    console.log("obj객체의 취미: " + obj.hobby);
+
+  </script>
+</head>
+<body>
+  <h2>클래스 연습</h2> <!--클래스(설계도)를 만들어놓고 객체(제품)생성해서 씀/자바스크립트는 객체생성한후 클래스 써도됨 -->
+</body>
+</html>
