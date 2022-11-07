@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>인터넷 시계</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    let statusTime;
+
+    function clock(){ //계속부를거라 위로 뺌
+      let today = new Date();
+      let hh = ('0'+today.getHours()).slice(-2);  //0을더하면 1시는 001시 slice(-2)를 통해 뒤에서 2개잘라내면 01이 잘려짐
+      let mm = ('0'+today.getMinutes()).slice(-2);
+      let ss = ('0'+today.getSeconds()).slice(-2);
+
+      let hhphoto ="";
+      let mmphoto="";
+      let ssphoto="";
+      // let hhphoto ="<img src ='../../images/ "+hh.substring(0,1)+".gif'/ >"+ "<img src ='../../images/ "+hh.substring(1)+" .gif'/>";
+      hhphoto ="<img src ='../../images/"+hh.slice(0,1)+".gif'/>"+ "<img src ='../../images/"+hh.slice(1)+".gif'/>"; //위에서 잘라온거에서 0번째 인덱스자리 사진을 따당이용 + 1번째자리 사진 따당이용
+      mmphoto ="<img src ='../../images/"+mm.slice(0,1)+".gif'/>" + "<img src = '../../images/"+mm.slice(1)+".gif'/>";
+      ssphoto ="<img src ='../../images/"+ss.slice(0,1)+".gif'/>" + "<img src = '../../images/"+ss.slice(1)+".gif'/>";
+
+      demo.innerHTML = hhphoto + " : " + mmphoto + " : " +ssphoto;
+
+
+    }
+
+    function clockStart() {
+      //방법1
+      clock(); //위에 clock 메소드를 호출
+      statusTime = setInterval(clock,1000); //1초에한번식 clock호출/현재상황을 statusTime변수에 담음
+      
+      //방법2
+      // clock();
+      // clearTimeout(statusTime);
+      // statusTime = setTimeout("clockStart()",1000);
+
+    }
+
+    function clockStop(){
+      clearInterval(statusTime); //statusTime을 중지시킴 /정지시킨후 다시 동작누르면 멈춘시간에서 다시동작하는게아니라 현재시간에서 다시감(Date사용해서)
+    }
+
+
+
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>인터넷 시계</h2>
+  <p>
+    <input type="button" value="동작" onclick="clockStart()" class="btn btn-secondary"/>
+    <input type="button" value="정지" onclick="clockStop()" class="btn btn-secondary"/>
+  </p>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

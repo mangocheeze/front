@@ -14,18 +14,18 @@
     'use strict';
 
     function fCheck(){
-      for(let i=1; i<=100; i++){ //let을 쓰라는게아니라 변수를 선언해서 쓰라는말임
+      for(let i=1; i<=100; i++){ //꼭 let을 쓰라는게아니라 변수를 선언해서 쓰라는말임
         if((i % 9) == 0){ //9의배수니까9로나눠줌
           document.write(i + " : 짝짝짝<br/>");
         }
         else if((i % 6) == 0){ //6의배수니까6으로나눠줌
           document.write(i + " : 짝짝<br/>");
         }
-        else if((i % 3) == 0){ //3의배수니까3으로나눠줌 //이걸 아래로 두는이유(3의배수가 다 포함되니까 6이랑 9가 안먹어서)
+        else if((i % 3) == 0){ //3의배수니까3으로나눠줌 //이걸 아래로 두는이유(3의배수가 다 포함되니까 젤위에두면 6이랑 9가 안먹어서)
           document.write(i + " : 짝<br/>");
         }
         else {
-          document.write(i + "<br/>");
+          document.write(i + "<br/>"); //다 포함안되면 '짝'없이출력
         }
       } 
     }
