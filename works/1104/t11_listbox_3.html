@@ -32,14 +32,14 @@
       demo.innerHTML = "선택한 과일은? <font color='red'><b>"+fruits+"</b></font> 입니다.";
     }
     */
-    function fCheck(e){ //현재 발생한 상황
-      const values =[];  //배열로 넣으면 구분자로 자동으로 ,가붙어서 구분이됨
-      const texts =[]; //???왜사용? 기본적으로 value가 없으면 text로한다?
+    function fCheck(e){ //e:현재 발생한 상황
+      const values =[];  //배열로 넣으면 구분자로 자동으로 ','가붙어서 구분이됨
+      const texts =[]; //value말고 <option>과</option>사이에 적힌 text가 출력. 기본적으로 value가 없으면 text로 출력한다
 
-      for(let i=0; i<e.options.length;i++) { //위에 e에서 발생한 상황에대한 길이
+      for(let i=0; i<e.options.length;i++) { //위에 e에서 발생한 이벤트에대한 길이
         const fruit = e.options[i]; //발생한상황을 fruit에 담음
-        if(fruit.selected){
-          values.push(fruit.value);
+        if(fruit.selected){  //선택한과일을 배열에 추가하겠다
+          values.push(fruit.value); //배열명.push() : 배열에 ()안에있는걸 추가 
           texts.push(fruit.text);
         }
       }

@@ -11,13 +11,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict';
-
+    // 다른거랑 다르게 왼쪽을 오른쪽에담음 ???
     //부모창에서 아이디가져오기
     function receiveMid(){
-      document.getElementById("mid").value = opener.document.getElementById("mid").value;  //opener :나를호출한창, 을 내꺼에 담음
+      document.getElementById("mid").value = opener.document.getElementById("mid").value;  
+          //opener :나를호출한창//나를호출한 부모창에 입력된 아이디를 내꺼(자식창)에 담음 /opener. 있는곳 = 부모????
     }
 
-    //자신의 창에 적혀있는 아이디를 부모창으로 보내기(아이디 넘겨주기 클릭시 실행)
+    //자신의 창(자식창)에 적혀있는 아이디를 부모창으로 보내기(아이디 넘겨주기 클릭시 실행)
     function sendMid(){
       opener.document.getElementById("mid").value = document.getElementById("mid").value; 
     }
@@ -25,7 +26,7 @@
     //자신의 창닫기 (내꺼를 부모한테주고 커서를 비밀번호에 가져다 놓고 끝내야함)
     function winClose(){
       // opener.document.getElementById("mid").value = document.getElementById("mid").value; //내꺼를 부모한테줌
-      sendMid(); //27번줄대신에 이렇게 불러와도됨
+      sendMid(); //위에 줄대신에 이렇게 불러와도됨
       opener.document.getElementById("pwd").focus(); //아이디 중복체크후 닫으면 커서가 비밀번호로감
       window.close(); //아이디 중복체크(나) 창닫기
     }

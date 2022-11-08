@@ -15,23 +15,23 @@
     let newWindow;
 
     function idCheck() {
-      let url = "t16_child.html";
-      let wName = "test16";
-      let opt = "width=500px, height=400px, left=300px, top=200px";
-      let mid = document.getElementById("mid").value;
+      let url = "t16_child.html"; //자식창띄움
+      let wName = "test16"; //윈도우 이름
+      let opt = "width=500px, height=400px, left=300px, top=200px"; //윈도우 옵션
+      let mid = document.getElementById("mid").value; //부모창에서 입력한 아이디값을 변수 mid에 담음
 
       if(mid.trim() == "") {
         alert("아이디를 입력하세요");
-        document.getElementById("mid").focus();
-        return false;
+        document.getElementById("mid").focus(); //아이디입력칸에 커서띄움
+        return false;  //실행을 끝냄
       }
 
-      newWindow = window.open(url, wName, opt);
+      newWindow = window.open(url, wName, opt);//새창띄우기(url,윈도우이름,옵션) 
     }
 
     function childClose() {
       // window.close();  // 현재 창이 닫힌다.
-      newWindow.close();
+      newWindow.close(); //???
     }
   </script>
 </head>

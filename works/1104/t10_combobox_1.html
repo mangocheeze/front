@@ -14,12 +14,12 @@
     'use strict';
 
     function fCheck() {
-      let fruit = document.getElementById("fruit").value;
+      let fruit = document.getElementById("fruit").value; //선택한 fruit를 변수 fruit에 담음
 
-      if(fruit == ""){
+      if(fruit == ""){ //공백이면(선택을안하면)
         alert("과일을 선택해주세요!");
       }
-      else{
+      else{ //선택하면 demo에 띄워라 
         document.getElementById("demo").innerHTML = "선택한 과일은 <font color ='red'>"+fruit+"</font>"
       }
     }
@@ -35,7 +35,7 @@
     <form name="myform">
       <div class="form-group"><label for="fruit">좋아하는 과일을 선택하세요</label></div>
       <div>
-        <select name="fruit" id="fruit" onchange="fCheck()" class="form-control mb-2"> <!-- mb-2 : 줄 띄우기/ onchange="fCheck()": 선택만하면 바로 demo에 출력됨 -->
+        <select name="fruit" id="fruit" onchange="fCheck()" class="form-control mb-2"> <!-- mb-2 : 줄 띄우기/ onchange="fCheck()": 콤보상자를 선택만하면 바로 demo에 출력됨 -->
           <option value="">선택하세요</option>
           <option value="사과">사과</option>
           <option value="배">배</option>

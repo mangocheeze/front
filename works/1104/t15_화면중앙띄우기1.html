@@ -14,10 +14,10 @@
     'use strict';
 
     function newWin(){
-      let url = "t15_child.html";
+      let url = "t15_child.html"; //자식창을 띄움
       let winWidth= 500;  //윈도우폭
       let winHeight = 400; //윈도우 높이
-      let x = (screen.width/2) - (winWidth/2); //윈도우 x좌표  (전체 폭/2 - 지정폭/2)
+      let x = (screen.width/2) - (winWidth/2); //윈도우 x좌표  (전체 폭(화면해상도가로크기)/2 - 지정폭/2)
       let y = (screen.height/2) - (winHeight/2); //윈도우 y좌표
       let opt = "width="+winWidth+",height="+winHeight+",left="+x+",top="+y;  //새창의 왼쪽위 꼭지점 (left,top)
       window.open(url,"nWin",opt);//새창띄우기(url,윈도우이름,옵션)

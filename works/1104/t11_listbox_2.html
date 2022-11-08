@@ -21,7 +21,7 @@
       }
 
       let fruits = "";
-      for(let i=0; i<myform.fruit.length; i++) {
+      for(let i=0; i<myform.fruit.length; i++) { //i가 0부터 과일 옵션들의 길이만큼(수만큼) 1씩증가
         if(myform.fruit.options[i].selected) {
           fruits += myform.fruit[i].value + "/";
         }
@@ -31,8 +31,8 @@
       demo.innerHTML = "선택한 과일은? <font color='red'><b>"+fruits+"</b></font> 입니다.";
     }
 
-    function rClear() { //demo에 뜬거 지우는법: onclick="rClear()"
-      demo.innerHTML = "";
+    function rClear() { //다시선택 누르면 demo에 뜬거 지우는법: onclick="rClear()" 쓰면됨
+      demo.innerHTML = ""; //지우기
     }
     </script>
     <style>

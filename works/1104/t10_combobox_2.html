@@ -13,14 +13,14 @@
     'use strict';
 
     function fCheck() {
-      let goUrl = document.getElementById("goUrl").value;
+      let goUrl = document.getElementById("goUrl").value; //콤보박스에서 선택한 값을 goUrl변수에담음
 
-      if(goUrl == ""){
+      if(goUrl == ""){ //선택을 안하면
         alert("이동할항목을 선택해주세요!");
       }
-      else{
+      else{ //선택하면
         alert("이동할 주소는?" + goUrl);
-        location.href=goUrl;
+        location.href=goUrl; // location.href : 새로운주소로 이동시킴
       }
     }
   </script>
