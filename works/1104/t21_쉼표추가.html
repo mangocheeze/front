@@ -65,7 +65,14 @@
     //쉼표표시하기 함수2 (실무에선 그냥 이 코드 그대로 사용하면됨)
     function numberWithCommas(num) { //앞에서 넘어오는 숫자를 3개씩끊다가 (+가붙었으니까 숫자는 최소 3개이상)반복되는부분에 ,로치환 숫자가 아닐때까지 반복
       return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); //\d :숫자가 들어올때, +: 1개이상 ?는 1개의문자를 의미 \B: 경계 / ?=(\d{3} 숫자 3개이상이 같다
-      //replace()메소드: 어떤패턴에 일치하는 일부또는 모든부분이 교체된 새로운 문자열을반환함
+      //replace()메소드: 어떤패턴에 일치하는 일부또는 모든부분이 교체된 새로운 문자열을반환함 .replace(변환대상,변환문자)
+    }
+
+    //숫자만 추출
+    function numOutput(){
+      let num = document.getElementById("num").value; //숫자입력칸에 입력된 num을 num 에 담음
+      num = num.toString().replace(/[^0-9]/g,""); //num에 입력된게 숫자가 아닐경우에 ""로 변환(없앰) 
+      myform.num.value = num; //다시 num 입력칸에 넣어줌
     }
 
   </script>
@@ -77,7 +84,7 @@
   <form name="myform">
 
     <p>
-      숫자 : <input type="text" name="num" autofocus />
+      숫자 : <input type="text" name="num" id="num" autofocus />
     </p>
     <p>
       <input type="button" value="쉼표추가1" onclick="commaInput1()" class="btn btn-success"/>

@@ -73,3 +73,12 @@
   </script>
 </body>
 </html>
+
+<!-- 랜덤값 구하는법(Math.floor 이용)
+  1) Math.floor() :난수생성  => 0<= x < 1   //x가 Math.floor()자리임
+  2) Math.floor() * Max :최대값설정 -> 0*max<= x < 1*max (최대값설정함)
+  3) (Math.floor() * Max)+ min : 최소값 설정 -> 0+min <= x < max+min (최소값설정)
+  4) (Math.floor() * (Max-min))+ min : 최대값이 max+min이니까 그럼 최대값을 넘어버리니 -min해주기 ->min <= x < max
+  5) (Math.floor() * (Max-min)+1)+ min : 최대값도 포함시켜주려고 +1해줌 -> min<= x < max+1 
+     //어짜피 < max 라 예를들어 최대값 10을써도 포함이안되니까 +1을해주면 <11이되어 최대값도 포함시켜줌
+-->
