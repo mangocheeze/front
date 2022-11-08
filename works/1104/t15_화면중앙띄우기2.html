@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>화면중앙에 새창띄우기2</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    function newWin() {
+      let url = "t15_child.html";
+      let windowName = "t15_child.html";
+      let winWidth = document.getElementById("winWidth").value;
+      if(winWidth<300) {winWidth=300;} //입력한 폭이 300보다 작을경우 최소크기인 300으로 맞춤
+      let winHeight = document.getElementById("winHeight").value;
+      if(winHeight<200) {winHeight=200;} //입력한 높이가 200보다 작을경우 최소크기인 200으로 맞춤
+      let winX = (screen.width/2)-(winWidth/2);
+      let winY = (screen.height/2)-(winHeight/2);
+      let opt = "width="+winWidth+"px, height="+winHeight+"px, left="+winX+"px , top="+winY+"px";
+      window.open(url,"windowName",opt);
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+  <div class="container">
+    <h2>화면중앙에 새창띄우기(부모창)</h2>
+    <p>
+      텍스트박스에 윈도우 가로크기와 세로크기를 입력받아서
+      버튼을 클릭하면 화면중앙에 사용자가 지정한 크기로 새창(t15_child.html)을 띄우시오<br/>
+      단, 최소창의 크기는 (300px * 200px)
+    </p>
+    <form name="myform">
+      <p>
+        <div>
+          윈도우 가로크기 : 
+          <input type="number" name="winWidth" id="winWidth" value="500" class="form-control mt-2 mb-2"/>
+        </div>
+        <div>
+          윈도우 세로크기 : 
+          <input type="number" name="winHeight" id="winHeight" value="400" class="form-control mt-2 mb-2"/>
+        </div>
+      </p>
+      <p>
+        <input type="button" value="중앙에새창띄우기" onclick="newWin()" class="btn btn-success mr-3"/>
+        <input type="reset" value="다시입력" class="btn btn-danger" />
+      </p>
+    </form>
+    <hr/>
+    <pre>
+      <!-- 대부분 지금은 지원안됨 -->
+      : 새창에서 사용되는 이름(name)?
+          _blank : 새창(기본값), _parent : 부모 프레임에 열린다,
+          _top: 로드된 프레임셋을 다시대체함<!--(창이 여러개일때 하나로 뭉쳐서 첫번째꺼에띄운다?)-->, _self: 자신창에 띄운다
+      : 새창에 사용되는 옵션(option)?
+          width :창의폭
+          height : 창의 높이
+          left : x축의 위치
+          top : y축 위치
+          fullscreen=(yes/no/auto) : 전체화면모드 <!--옛날에 사용,지금은 지원x-->
+          titlebar=(yse/no/auto) : 제목표시줄의 표시여부 결정
+          location=(yse/no/auto) : 주소표시줄의 출력여부를 결정
+          menubar=(yse/no/auto) : 메뉴표시줄의 표시여부 결정(주소창아래 파일,편집,보기...)
+          resizable=(yse/no/auto) : 창의 크기를 제어 결정
+          scrollbars=(yse/no/auto) : 스크롤바의 표시여부 결정(auto가 기본)
+          toolbar=(yse/no/auto) : 툴바(도구상자)의 표시여부 결정
+
+    </pre>
+  </div>
+<p><br/></p>
+</body>
+</html>

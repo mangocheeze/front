@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쉼표처리(숫자 3자리마다 쉼표)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+
+    function commaInput1(){  
+      let num = myform.num.value;
+
+      if(num == "" || isNaN(num)){ //공백이거나 숫자가 아니면
+        alert("숫자를 입력하세요");
+        myform.num.select(); 
+        myform.num.focus();
+        return false; //더이상 수행안하고 끝냄
+      }
+      else if(num.substring(0,1)== 0){
+        alert("첫번째 숫자에 0이 올수 없습니다")
+        myform.num.select(); 
+        myform.num.focus();
+        return false;
+      }
+      // 숫자값만 입력되었다면 콤마함수를 호출한다
+      demo.innerHTML = comma(num); //콤마함수에서 num을 넘김
+    }
+
+    //쉼표표시하기 함수 1 ex.(1234567 => 1,234,567) =>뒤에서부터 생각
+    function comma(num){ //num을 받아서 리턴해줌
+      let numLen = num.length; //num의 전체길이 (지금 7나옴)
+      let numStr = "";
+      let numPoint = numLen % 3; //만약 8이나오면 나머지 2, 7이나오면 나머지1 /7%3 하니까 나머지는 1
+      
+      numStr = num.substring(0,numPoint); //현재 numPoint에 1이들어가있음/0번째부터 1앞에까지니까 숫자1
+
+      while(numPoint < numLen){ //숫자1 다음에 쉼표를 넣을거임, 3개건너뛴다음 쉼표 3개건너뛴다음 쉼표
+        if(numStr != "") numStr += ","; //numStr이 공백이아닐경우에 ,붙임
+        numStr += num.substring(numPoint, numPoint+3);//3개뒤로간뒤 쉼표해줄거니까
+        numPoint += 3;
+      }
+      return numStr;
+    }
+
+    //
+    function commaInput2(){  
+      let num = myform.num.value;
+      num *= 1; //실무에선 그냥숫자를 넣지않고 뭔가를 처리를 하고 넣는경우가 대부분이라 넣은코드
+
+      if(num == "" || isNaN(num)){ 
+        alert("숫자를 입력하세요");
+        myform.num.select(); 
+        myform.num.focus();
+        return false; 
+      }
+      // 숫자값만 입력되었다면 콤마함수를 호출한다
+      demo.innerHTML = numberWithCommas(num);  //사용자가 만든이름 : numberWithCommas 근데 주로 이걸씀
+    }
+
+    //쉼표표시하기 함수2 (실무에선 그냥 이 코드 그대로 사용하면됨)
+    function numberWithCommas(num) { //앞에서 넘어오는 숫자를 3개씩끊다가 (+가붙었으니까 숫자는 최소 3개이상)반복되는부분에 ,로치환 숫자가 아닐때까지 반복
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); //\d :숫자가 들어올때, +: 1개이상 ?는 1개의문자를 의미 \B: 경계 / ?=(\d{3} 숫자 3개이상이 같다
+      //replace()메소드: 어떤패턴에 일치하는 일부또는 모든부분이 교체된 새로운 문자열을반환함
+    }
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>쉼표처리</h2>
+  <form name="myform">
+
+    <p>
+      숫자 : <input type="text" name="num" autofocus />
+    </p>
+    <p>
+      <input type="button" value="쉼표추가1" onclick="commaInput1()" class="btn btn-success"/>
+      <input type="button" value="쉼표추가2" onclick="commaInput2()" class="btn btn-warning"/>
+      <input type="button" value="숫자값만추출" onclick="numOutput()" class="btn btn-danger"/> <!--숙제2) 문자랑 숫자 같이넣었을때 문자는빼고 숫자만 출력하게 만들어보기,정규식 디짓 사용-->
+      <input type="reset" value="다시입력" class="btn btn-danger"/>
+    </p>
+  </form>
+    <hr/>
+    <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>
