@@ -21,10 +21,10 @@
       //empty : 공백을 체크
       $("#nations tbody td:empty()").css('backgroundColor','red'); 
       
-      //모든 행을 감추기
+      //.hide() :모든 행을 감추기
       $("#nations tbody tr").hide();
       
-      //특정행만 보여주기 ex.'국'글자가 들어간 행만 보여주기
+      //.parent().show() :특정행만 보여주기 ex.'국'글자가 들어간 행만 보여주기
       $("#nations tbody td:contains('국')").parent().show();
 
 

@@ -13,11 +13,11 @@
   <script>
     'use strict';
     $(function(){
-      $('#nations tbody tr:first').css('backgroundColor','lightgray'); //table아이디 nations에 tbody에 첫번째 tr에 줄거임 (같은 테이블아이디여도 첫번째 테이블 아이디에만 적용)
-      $('#nations tbody tr:last').css('backgroundColor','lightgray'); //table아이디 nations에 tbody에 마지막 tr에 줄거임
+      $('#nations tbody tr:first').css('backgroundColor','lightgray'); //table아이디 nations의 tbody에 첫번째 tr에 줄거임 (2개가 내용이 같은테이블이고 ,아이디가 같아도 첫번째 테이블 아이디에만 적용)
+      $('#nations tbody tr:last').css('backgroundColor','lightgray'); //table아이디 nations의 tbody에 마지막 tr에 줄거임
 
-      //테이블의 1번째행을 (1)로본다.
-      // $('#nations tbody tr:nth-child(2)').css('backgroundColor','pink'); //두번째행이 핑크로 됨
+      //테이블의 1번째행을 (1)로본다.(인덱스랑다르게 1부터시작)
+      // $('#nations tbody tr:nth-child(2)').css('backgroundColor','pink'); //(2) :두번째행이 핑크로 됨
 
       // $('#nations tbody tr:nth-child(odd)').css('backgroundColor','green'); //홀수에 적용됨 (이건 또 두 테이블다 적용됨)
       // $('#nations tbody tr:nth-child(even)').css('backgroundColor','yellow'); //짝수에 적용됨 

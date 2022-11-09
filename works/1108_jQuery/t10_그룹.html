@@ -9,11 +9,11 @@
   <script>
     $(document).ready(function(){
       // $('div span').css('color','orange'); //모든 span 다 적용
-      $('div span:first').css('color','orange'); //최초1개만 적용됨
+      $('div span:first').css('color','orange'); // :first를 써주면 최초1개만 적용됨
 
-      $('div span:first-child').css({'color':'orange','fontsize':'20px'}); //div별로 그룹을 묶고 그중 span태그중에서 첫번째요소만 적용
-      $('div span:only-child').css({'textDecoration':'underline', 'fontSize':'40px'}); // div별로 그룹을 묶고, 요소가 1개인것만 적용
-      $('div span:only-of-type').css({'border':'1px solid red', 'fontSize':'10px'}); // div별로 그룹을 묶고, 그 중에서 태그가 1개인것만 적용
+      $('div span:first-child').css({'color':'orange','fontsize':'20px'}); //div별로 그룹을 묶고 그중 span태그중에서 첫번째요소만 적용 (:first-child)
+      $('div span:only-child').css({'textDecoration':'underline', 'fontSize':'40px'}); // div별로 그룹을 묶고, 요소가 1개인것만 적용  (:only-child)
+      $('div span:only-of-type').css({'border':'1px solid red', 'fontSize':'10px'}); // div별로 그룹을 묶고, 그 중에서 태그가 1개인것만 적용  (:only-of-type)
     });
   </script>
 </head>

@@ -15,7 +15,7 @@
     $(function(){
       let varDiv = $('.container div').css('color','lightgray');
 
-      varDiv.slice(2,5).css('color','orange');  //slice(시작인덱스,마지막인덱스-1): substring과비슷 잘라내는거임
+      varDiv.slice(2,5).css('color','orange');  //slice(시작인덱스,마지막인덱스-1)이 적용됨: substring과비슷 잘라내는거임
       varDiv.slice(-3,-1).css('color','green'); //뒤에서 3개부터 -1보다 앞에꺼(전에꺼)니까 Item8,Item9만 적용(거꾸로할땐 0부터가아님)
       varDiv.slice(-3).css('color','red'); //-3번째부터 끝까지 적용
       varDiv.slice(-1).css('color','blue'); //마지막꺼만 적용

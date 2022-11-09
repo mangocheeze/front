@@ -15,43 +15,47 @@
     //$(function(){}과 차이점? 없음.그냥 축약한거임
 
     
-      // let show = $('.container div:visible'); //container클래스안에 div에 visible이 있는 자손태그
-      let show = $('.container > div:visible'); //화면에 보이는것만 show에담겠다(display:none만 제외/hidden은 영역이있으니까 포함) //container클래스안에 자식 div의 보이는 요소들을 보여달라 ???/visible은 명령어
+      // let show = $('.container div:visible'); 
+      let show = $('.container > div:visible'); //container클래스 아래 div중 화면에 보이는것만 show에담겠다(display:none만 제외/hidden은 영역이있으니까 포함)/visible은 명령어
       console.log(show);
 
       let showArray = []; //배열로선언
       for(let i=0; i<show.length; i++){
-        // showArray.push(show[i].innerHTML); //.push() :배열에 집어넣는 명령어/div태그로 넣어야되니까 text가아닌 html (=>자바스크립트방식)
-        showArray.push($(show[i]).html());  //showArray배열에 i번째 show를 html로 집어넣어라 //javascript 명령을 jQuery방식으로 바꿈 /innerHTML => html로 축약함 
+        // showArray.push(show[i].innerHTML); //.push() :배열에 집어넣는 명령어/div태그로 넣어야되니까 text가아닌 html,HTML로하면 글자뿐만아니라 속성들도 같이출력함 (=>자바스크립트방식)
+        showArray.push($(show[i]).html());  //showArray배열에 i번째 show를 html방식으로 집어넣어라 //javascript 명령을 (=>jQuery방식)으로 바꿈 /innerHTML => html로 축약함 
       }
-      console.log(showArray);//요소가 들어가있는 각각의 항목 출력됨(display:none;으로 한 안녕하세요3은 출력 x)
+      console.log(showArray);//요소가 들어가있는 각각의 항목 출력됨(display:none;으로 한 안녕하세요3,안녕하세요8 은 출력 x)
       console.clear(); //ccl엔터치면나옴
 
       //demo에 적용
-      // $('#demo div:first').text(showArray);  //demo의 자식 div중 첫번째 /:first는 '첫번째'라는 명령어임  <div></div><div></div> 보임/?????
+      // $('#demo div:first').text(showArray);  //div:first => demo의 자식 div중 첫번째 / :first는 '첫번째'라는 명령어임/  <div></div><div></div> 보임
       $('#demo div:first').html(showArray);   //text대신 html로 쓰면 가상창(demo)에 <div></div><div></div> 안보임
       // demo에 첫번째 <div></div>사이에 showArray를 출력하겠다!!!  
 
-      // //map문을 이용한 처리(map도 반복할때 처리)
-      // $('.container > div:hidden').map(function(i,item){ //container클래스 바로밑(자식) div:hidden 처리한거 (화면에 안보이게해놓은거)
+
+      //map문을 이용한 처리(map도 반복할때 처리)
+
+      // $('.container > div:hidden').map(function(i,item){ //container클래스 바로밑(자식) div:hidden 처리한거 (화면에 안보이게해놓은거)를 보여줌
       //   console.log(item);  //안보이는거에대해서 찾음(여러개가 있을수있어서 map(반복)으로 찾음)  //안녕하세요3출력됨
       // });
-
-    let hiddenArray = $('.container > div:hidden').map(function(i,item){ //화면에 안보이는걸 hiddenArray에 담아라//container클래스 아래 자식태그 div에 hidden해놓은걸 map으로 반복해서 요소를 return해라?
+    //위에대신 이방법사용
+    let hiddenArray = $('.container > div:hidden').map(function(i,item){ 
       // console.log(item); 
-      return $(item).html();
+      return $(item).html();  //container클래스 아래 자식태그 div에 div:hidden으로 화면에 안보이게 해놓은걸 map반복문으로 찾아서 hiddenArray에 담고 그 요소를 html방식으로 return해줘라
     });
     console.log(hiddenArray);
     console.clear();
     
-    // //map을 사용하여 값을 읽어올때는 join()을 사용할때 get()메소드를사용한다
+
+    //map을 사용하여 값을 읽어올때 구분자로 join()을 사용할때는 get()메소드를 꼭 같이 작성해준다
+    //map을 쓰게되면 forEach나 다른반복문에 비해 처리속도가 빠름
       hiddenArray = $('.container > div:hidden').map(function(i,item){
     //     // console.log(item); 
         return $(item).html();
-      }).get().join('/');  //join으로 구분자로 분리해서 따로 보고싶을때
+      }).get().join('/');  //join: 구분자로 분리해서 따로 보고싶을때사용,구분자는 +나 공백이나 자유롭게 작성가능 =>쓰임새 : 구분자로 구분할때나, spilt으로 구분자를 기준으로 범위(방) 나눌때?사용
     //   // console.log(hiddenArray); 콘솔에출력
     //   // $('#demo div:last').text(hiddenArray); //브라우저에 출력
-      $('#demo div:last').html('<br/>'+hiddenArray);
+      $('#demo div:last').html('<br/>'+hiddenArray); //브라우저에 출력
     });
 
   </script>

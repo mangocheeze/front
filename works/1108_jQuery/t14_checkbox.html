@@ -14,11 +14,11 @@
     
     //name이 같고 id가없을때 (each사용)-1
     $(function(){
-      $('.container input[name="choiceBtn1"]').click(function(){//onclik대신 name을 호출하는방법 id없이 name으로 해당 폼태그에 접근
+      $('.container input[name="choiceBtn1"]').click(function(){  //id 대신 name을 호출하는방법 해당 폼태그에 접근 []
         //each()
         let fruitArray = [];
-        $('.container input[class="fruit"]').each(function(i, item){//class로 접근( name="fruit"로 접근해도됨)
-          if($(item).is(':checked')) {//0번째부터 비교한데이터가 체크되어있으면 //:는 =의 의미
+        $('.container input[class="fruit"]').each(function(i, item){  //class로 접근( name="fruit"로 접근해도됨)
+          if($(item).is(':checked')) {  //0번째부터 비교한데이터가 체크되어있는거랑 같으면 //:는 =의 의미, is()는 같을경우적용이라는뜻
           //   $(item).css('outline', '1px solid red');
             fruitArray.push($(item).val()); //체크된 val를 배열에 담겠다 //val: value()를 축약함
           // }
@@ -36,7 +36,7 @@
           if($(item).is(':checked')) {
             return $(item).val();
           }
-        }).get().join("/");  //map에서는 get()으로읽는데 구분자는 join("/")으로 줘라
+        }).get().join("/");  //map에서는 get()으로읽는데 구분자는 join("/")으로 줘라 (join쓸때는 꼭 get도 있어야함)
         $('#demo').html(fruitArr2); //마지막 /는 알아서 빠짐
       });
     });

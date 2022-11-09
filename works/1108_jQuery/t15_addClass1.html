@@ -12,7 +12,7 @@
   <script>
     'use strict';
     $(function(){
-      $('#google').addClass('userHover'); //내가 만든클래스를 넣음
+      $('#google').addClass('userHover'); //내가 만든클래스(userHover)를 넣음
       $('#google').removeClass('userHover');
 
       /*
@@ -28,11 +28,11 @@
       });
       */
     
-      //이렇게 체이닝(chainning):엔터쳐서 이어서 적는거 으로 쓸수도있음 (더 간결)
+      //이렇게 체이닝(chainning):한줄로 안쓰고 엔터쳐서 이어서 적어서 쓸수도있음 (더 간결)
       $('#menu2 button').mouseenter(function(){ //mouseenter: 마우스가 들어올때
         $(this).addClass('userHover');
       })
-      .mouseleave(function(){
+      .mouseleave(function(){ //mouseleave : 마우스가 나갈때
         $(this).removeClass('userHover');
       });  
     });

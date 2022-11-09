@@ -11,16 +11,18 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict';
+    // filter() : 걸러낸거에 적용
 
     $(function(){
-      //DOM을 두번검색처리...
+      //DOM을 두번검색처리... (할때마다 검색을 또함)
       $('.container div').css('color','lightgray'); //div태그에 적용
       $('.container div.test2').css('color','orange'); //div태그에 적용 (두번처리하니까 마지막에 나온 이걸로 덮어씀)
 
-      //DOM에서는 1번검색후 , 그 결과에대하여 다시검색처리..(filter가 하는 역할) -한줄로 안쓰고 엔터로 줄바꿈해서 써도됨(가독성을위해)
-      $('#two div').css('color','gray')      //진달래 꽃2(두번째) div에 적용
-      .filter('.test2').css('color','orange')   // .filter()로 test2클래스를 걸러내서 오렌지색을줌
-      .filter('.main').css({'color':'red','font-size':'20pt'}); //main클래스를 걸러내서 빨간색,글자크기 20pt를 줌
+      //DOM에서는 검색을 1번만 한후 , 그 결과에대하여 다시검색(필터)처리..(filter가 하는 역할) 
+      // 한줄로 안쓰고 엔터로 줄바꿈해서 써도됨 -체이닝(가독성을위해)
+      $('#two div').css('color','gray')      //#two 진달래 꽃2(두번째)아이디의 div에 컬러 적용 (=>검색처리)
+      .filter('.test2').css('color','orange')   // .filter()로 위에서 검색한거중에 또 test2클래스를 걸러내서 오렌지색을줌
+      .filter('.main').css({'backgroundColor':'red','font-size':'20pt'}); //그중에 또 main클래스를 걸러내서 배경색을 빨간색,글자크기 20pt를 줌
     
       //결과를 변수에 담아서 filter처리해보자
       let three = $('#three div').css('color','pink'); //진달래꽃3에적용

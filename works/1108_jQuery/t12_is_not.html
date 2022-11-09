@@ -19,12 +19,12 @@
         .filter(function(i,item){
           return i % 2 == 0; //return:처리한내용을 보내줘야하니까/짝수행
         }).css('color','orange')
-        .filter('.cc').css('fontSize','50pt'); //걸러져나온것에대해서만 적용됨(div만 가능(위에 div에서라고써놔서))
+        .filter('.cc').css('fontSize','50pt'); //걸러져나온것에대해서만 적용됨(div만 가능(위에 div로 검색처리한거에서 짝수로걸러낸거중에서 또 필터로 걸러낼거라))
         
         // is() 메소드 :()랑 같은거에 대해서 적용 /필터랑 비슷함(필터:연산식o, is연산식:x)
         $('#two div').css('color','lightgray')
         .filter(function(i,item){
-          return i % 2 == 0; //return:처리한내용을 보내줘야하니까/짝수행
+          return i % 2 == 0; //return:처리한내용을 보내줘야하니까/짝수행 ???왜 홀수행에 적용되지????
         }).css('color','orange')
         .filter(function(i,item){
           return $(item).is('.cc')//필터로 꺼내준것중에서 cc랑 같은것만

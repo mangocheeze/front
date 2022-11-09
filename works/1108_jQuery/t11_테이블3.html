@@ -11,15 +11,16 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict';
+    // 키보드로 국가명 검색창에 한글자라도 입력하면 그 글자가 하나라도 포함하는 행만 보여줌
     $(function(){
       //특정행만 보여주기 ex. 텍스트필드에 입력한 글자가 들어간 행만 보여주기
       $('#keyword').keyup(function(){ // keyup 이벤트 쓰는이유: 입력한후 손을뗐을때실행
-        $("#nations tbody tr").hide(); //hide():감추기
+        $("#nations tbody tr").hide(); //hide():감추기 /모든행을 감춘뒤
         
-        // $('#keyword').val(); //?
-        let word = $(this).val(); //여기서 $(this)는 현재꺼가뭐냐?/키보드를 놓는순간 값을 가져오는걸 변수에 넣음
-        $("#nations tbody td:contains('"+word+"')").parent().show(); //word는 변수니까 따당
-      //this는 아래서 name이나 class가 같은데 각자 다른상황을 줘야하는 상황일때 사용
+        // $('#keyword').val(); //id가 keyword인것의 값 /val은 value의 축약
+        let word = $(this).val(); //여기서 $(this)는 현재꺼가뭐냐?/키보드로 입력창에 작성하고 손을 놓는순간의 값을 가져온걸 변수 word에 넣음
+        $("#nations tbody td:contains('"+word+"')").parent().show(); //word는 변수니까 따당 //키보드로 작성한걸 담음 word가 포함된 행만 보여줌
+      //this는 아래서 name이나 class를 똑같이 줬는데 각자 다른상황을 줘야하는 상황일때 사용
       });
     });
 
