@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    $(function(){
+      $('#google').addClass('userHover'); //내가 만든클래스를 넣음
+      $('#google').removeClass('userHover');
+    
+      $('#menu2 button').mouseenter(function(){ //mouseenter: 마우스가 들어올때
+        $(this).addClass('userHover');
+      })
+      .mouseleave(function(){
+        $(this).removeClass('userHover');
+      });  
+
+      //그림에 마우스를 올리면 다른그림으로 변경처리...
+      $('#img1 img').mouseenter(function(){ //div 아이디가 img1인곳에 img태그
+        //마우스가 들어간 2.jpg 그림이 this가됨
+        $(this).attr({'src':'../../images/3.jpg','width':'150px'}); //마우스를 대면 3.jpg그림으로 바뀜//하나만 적을때는 ''만해도됨, 여러개를 적을때는 {}
+      })
+      .mouseleave(function(){
+        $(this).attr({'src':'../../images/2.jpg','width':'150px'}); //마우스가 나가면 다시 2.jpg로 바뀜
+      }); 
+
+      //logo 마우스 올리면 한글로 변경하기 (영어로 나온걸 한글로 바꿈)
+      $('#logo span').mouseenter(function(){
+        $(this).html('<font color=blue><b>그린컴퓨터</b></font>'); //html대신 text라고해도됨(색깔 이런거 안넣을거면)
+      })
+      .mouseleave(function(){
+        $(this).text('Green Computer');
+      });
+    });
+    
+  </script>
+  <style>
+    div#menu1 {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid gray;
+      width: 130px;
+      text-align: center;
+    }
+    button.default {
+      margin: 2px;
+      border: 1px solid gray;
+      width: 100px;
+      text-align: center;
+      background-color: purple;
+      color: white;
+    }
+    #menu1 > button:hover {
+      background-color: white;
+      color: purple;
+    }
+
+    .userHover { /*사용자가 만든클래스 ????*/
+      background-color: yellow;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2 id="google">Google</h2>
+  <div id="menu1">
+    <button class="default">회사소개</button>
+    <button class="default">CEO소개</button>
+    <button class="default">사업영역</button>
+    <button class="default">제품소개</button>
+  </div>
+  <hr/>
+  <h2 id="google2">Google</h2>
+  <div id="menu2">
+    <button class="default2">회사소개</button>
+    <button class="default2">CEO소개</button>
+    <button class="default2">사업영역</button>
+    <button class="default2">제품소개</button>
+  </div>
+  <hr/>
+  <div id="img1">
+    <img src="../../images/2.jpg" width="150px" title="얌전한고양이"/>
+  </div>
+  <hr/>
+  <div id="logo">
+    <span>Green Computer</span>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>
+
+<!-- 마우스가 들어가면 hover 나오면 out
+이거보다 많이쓰는게
+들어갈때 :mouseenter, 나올때:mouseleave -->

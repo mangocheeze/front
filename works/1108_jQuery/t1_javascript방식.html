@@ -1,0 +1,75 @@
+<!-- jQuery사용하기전 방법(자바스크립트를 이용해서 onLoad방식) -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.onload</title>
+  <!-- CDN(콘텐츠 전송 네트워크)방식 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script> 
+  // 스크립트를 body 위에서 사용 아래서 사용 차이점:body부분이 로딩이되고 스크립트 명령을 써서 못불러옴 ?
+  /*
+    스크립트를 쓰고 body를 쓰면 스크립트에 getElementById를 사용할때 body의 내부id가 생성하기도
+    전에 실행되므로 문제가 발생함 -> 그럼 스크립트 위치를 아래로 내려야하는데 불편해짐
+    window.onload메소드를 이용해서 자바스크립트가 문서가 준비된 상황이후에 실행되도록 해주게함
+    window.onload: 웹브라우저 자체를 담당하는 window라는 객체가 웹문서를 불러올때 문서가 사용되는 시점에
+    실행되는 onload함수를 내가다시 재정의한다
+    */
+  
+    'use strict';
+
+
+    //window는 좌측에있는걸 우측에 넣음 
+    window.onload = function(){  //window.onload : body부분 보다 여길 먼저 실행하게끔함
+
+      /*.value를 안쓰고 변수에 담는이유: 뒤에 document.getElementById("cost").value, document.getElementById("cost").focus , document.getElementById("cost").select
+       를 매번 써주기 귀찮아서 변수에담고 필요시에 뒤에 메소드(.value,.select,.focus)를 써줌 */
+      let costVar = document.getElementById("cost"); //속성가져옴 /상품가격
+      let suVar = document.getElementById("su"); //상품개수
+      let demo = document.getElementById("demo");
+      let totalBtn = document.getElementById("totalBtn"); //계산버튼
+
+      totalBtn.addEventListener('click',function() {  //이벤트가 발생하면 처리하시오 /토탈버튼을 누르는순간 {}안에가 실행
+        let cost = Number(costVar.value); //상품가격에 입력한값을 숫자로형변환해서 cost변수에담음//Number: 정수실수 둘다 ,parseInt :정수만 /Number: 클래스임(첫글자 대문자)
+        let su = Number(suVar.value);
+        if(isNaN(cost) || isNaN(su)){ //가격이나 수량이 숫자가 아닐경우
+          alert("숫자만 입력하세요");
+          costVar.select(); //상품가격입력창이 다시 선택되고
+          costVar.focus(); //커서를 띄움
+          return false; //끝내버림
+        }
+
+        let res= cost * su ; //상품가격 * 갯수 한걸 res에 담음
+        demo.innerHTML = res; //가상창에 res를 뿌림
+      }); 
+    }
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>상품가격 계산</h2>
+  <form name="myform">
+    <div>
+      상품가격
+      <input type="text" name="cost" id="cost" autofocus class="form-control" />
+    </div>
+    <div>
+      수량
+      <input type="number" name="su" id="su" class="form-control mb-3"/>
+    </div>
+    <div>
+      <input type="button" value="계산" id="totalBtn" class="btn btn-success" /> <!--onclick 대신 id로 써도관계없음-->
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

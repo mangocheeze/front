@@ -1,0 +1,77 @@
+<!-- css를 jQuery방식으로 바꾸기 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.onload</title>
+  <!-- CDN방식 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> <!-- jQuery (추가로 넣는건 제일 마지막에 작성해야함)-->
+
+  <script> 
+    'use strict';   
+
+    //css
+    
+    $(document).ready(function(){ //document : 웹페이지 그자체
+      // $("#demo").css("color",'red'); //jQuery에서 css사용하는방식
+      // $("#demo").css("fontSize","20pt"); //-도없앰,-올 뒷자리 대문자로 바꿈
+      //위에걸 한줄로 바꾸면 ?
+      $("#demo").css({"color":'red',"fontSize":"20pt"}); //데모에 이 css로 뿌림//css여러개 쓸땐 {속성:값,속성:값}사용
+
+      $("#totalBtn").click(function(){  
+        let cost = $("#cost").val(); 
+        let su = $("#su").val(); 
+    
+        if(isNaN(cost) || isNaN(su)){ 
+          alert("숫자만 입력하세요");
+          $("#cost").select();
+          $("#cost").focus();
+          return;
+        }
+        let res= cost * su ;
+        demo.innerHTML = res;
+          
+      });  
+    }); 
+
+  </script>
+  <style>
+
+    /* 일반 css방식
+    #demo {
+      color: red;
+      font-size: 20pt;
+    } 
+    */
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>상품가격 계산</h2>
+  <form name="myform">
+    <div>
+      상품가격
+      <input type="text" name="cost" id="cost" autofocus class="form-control" />
+    </div>
+    <div>
+      수량
+      <input type="number" name="su" id="su" class="form-control mb-3"/>
+    </div>
+    <div>
+      <input type="button" value="계산" id="totalBtn" class="btn btn-success" /> <!--onclick 대신 id로 써도관계없음-->
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

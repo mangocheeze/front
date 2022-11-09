@@ -1,0 +1,86 @@
+<!-- 유지보수: 쉼표추가 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.onload</title>
+  <!-- CDN방식 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> <!-- jQuery (추가로 넣는건 제일 마지막에 작성해야함)-->
+
+  <script> 
+    'use strict';   
+
+    $(document).ready(function(){
+
+
+      $("#demo").css({"color":'red',"fontSize":"20pt"}); 
+
+      $("#totalBtn").click(function(){ 
+        let cost = $("#cost").val(); 
+        let su = $("#su").val(); 
+    
+        if(isNaN(cost) || isNaN(su)){ 
+          alert("숫자만 입력하세요");
+          $("#cost").select();
+          $("#cost").focus();
+          return;
+        }
+        let res= cost * su ;
+
+        //유지보수날짜...(221109) //계산한거에 쉼표추가
+        res = numberWithCommas(res); //res를 넣고 콤마(쉼표)함수를 호출함 결과를 res에 다시담음 /numberWithCommas: 사용자가 만든이름(근데 보통이걸씀) *참고: 1104-t21_쉼표추가*
+        demo.innerHTML = res;
+          
+      });  
+    }); 
+
+    //이곳에 새로운 유지보수내역을 기록( 날짜와함께)
+    $(document).ready(function(){ 
+      $("#demo").css({"color":"blue", "fontSize":"30pt"})
+    });
+
+    //출력되는 가격에 쉼표표시를 넣어주세요..
+    function numberWithCommas(num) { //이게 호출된 콤마함수
+      return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g,","); 
+    }
+  </script>
+  <style>
+
+    /* 일반 css방식
+    #demo {
+      color: red;
+      font-size: 20pt;
+    } 
+    */
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>상품가격 계산</h2>
+  <form name="myform">
+    <div>
+      상품가격
+      <input type="text" name="cost" id="cost" autofocus class="form-control" />
+    </div>
+    <div>
+      수량
+      <input type="number" name="su" id="su" class="form-control mb-3"/>
+    </div>
+    <div>
+      <input type="button" value="계산" id="totalBtn" class="btn btn-success" /> <!--onclick 대신 id로 써도관계없음-->
+    </div>
+  </form>
+  <hr/>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>

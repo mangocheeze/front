@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>basic</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    $(function(){
+      $('#google').addClass('userHover'); //내가 만든클래스를 넣음
+      $('#google').removeClass('userHover');
+
+      /*
+      $('#menu2 button').mouseenter(function(){ //mouseenter: 마우스가 들어올때
+        console.log("안으로.."); //찍어본거임
+        $(this).addClass('userHover'); //userHover를 적용
+      });  
+        $('#menu2 button').mouseleave(function(){ //mouseleave :마우스가 나올때
+        console.log("밖으로..");
+        $(this).removeClass('userHover'); //userHover를 지움
+        //this는 아래서 name이나 class가 같은데 각자 다른상황을 줘야하는 상황일때 사용
+        //여기선 class가 default로 다 같은데 마우스를 올릴때 userHover클래스가 작동되게(노란색으로 바뀌게)해야되니까 this를씀
+      });
+      */
+    
+      //이렇게 체이닝(chainning):엔터쳐서 이어서 적는거 으로 쓸수도있음 (더 간결)
+      $('#menu2 button').mouseenter(function(){ //mouseenter: 마우스가 들어올때
+        $(this).addClass('userHover');
+      })
+      .mouseleave(function(){
+        $(this).removeClass('userHover');
+      });  
+    });
+    
+  </script>
+  <style>
+    div#menu1 {
+      margin: 5px;
+      padding: 5px;
+      border: 1px solid gray;
+      width: 130px;
+      text-align: center;
+    }
+    button.default {
+      margin: 2px;
+      border: 1px solid gray;
+      width: 100px;
+      text-align: center;
+      background-color: purple;
+      color: white;
+    }
+    #menu1 > button:hover {
+      background-color: white;
+      color: purple;
+    }
+
+    .userHover { /*사용자지정클래스: 사용자가 만든클래스 -나중에 누가 요구했을때 여기다가 추가*/
+      background-color: yellow;
+      color: blue;
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2 id="google">Google</h2>
+  <div id="menu1">
+    <button class="default">회사소개</button>
+    <button class="default">CEO소개</button>
+    <button class="default">사업영역</button>
+    <button class="default">제품소개</button>
+  </div>
+  <hr/>
+  <h2 id="google2">Google</h2>
+  <div id="menu2">
+    <button class="default2">회사소개</button>
+    <button class="default2">CEO소개</button>
+    <button class="default2">사업영역</button>
+    <button class="default2">제품소개</button>
+  </div>
+  <hr/>
+</div>
+<p><br/></p>
+</body>
+</html>
+
+<!-- 마우스가 들어가면 hover 나오면 out
+이거보다 많이쓰는게
+들어갈때 :mouseenter, 나올때:mouseleave -->

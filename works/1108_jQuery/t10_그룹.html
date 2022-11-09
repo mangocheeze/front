@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> <!-- jQuery (추가로 넣는건 제일 마지막에 작성해야함)-->
+  <script>
+    $(document).ready(function(){
+      // $('div span').css('color','orange'); //모든 span 다 적용
+      $('div span:first').css('color','orange'); //최초1개만 적용됨
+
+      $('div span:first-child').css({'color':'orange','fontsize':'20px'}); //div별로 그룹을 묶고 그중 span태그중에서 첫번째요소만 적용
+      $('div span:only-child').css({'textDecoration':'underline', 'fontSize':'40px'}); // div별로 그룹을 묶고, 요소가 1개인것만 적용
+      $('div span:only-of-type').css({'border':'1px solid red', 'fontSize':'10px'}); // div별로 그룹을 묶고, 그 중에서 태그가 1개인것만 적용
+    });
+  </script>
+</head>
+<body>
+  <div>
+    <span>1짜장면</span>
+    <span>1짬뽕</span>
+    <span>1탕수육</span>
+    <span>1볶음밥</span>
+    <span>1팔보채</span>
+  </div>
+  <hr/>  
+  <div>
+    <b>2짜장면</b>
+    <span>2짬뽕</span>
+    <span>2탕수육</span>
+    <span>2볶음밥</span>
+    <span>2팔보채</span>
+  </div>
+  <hr/>  
+  <div>
+    <span>3짜장면</span>
+  </div>
+  <hr/>  
+  <div>
+    <span>4짜장면</span>
+    <span>4짬뽕</span>
+    <span>4탕수육</span>
+    <b>4볶음밥</b>
+    <span>4팔보채</span>
+  </div>
+  <hr/>  
+  <div>
+    <b>5짜장면</b>
+    <b>5짬뽕</b>
+    <b>5탕수육</b>
+    <b>5볶음밥</b>
+    <span>5팔보채</span>
+  </div>
+  <hr/>  
+</body>
+</html>

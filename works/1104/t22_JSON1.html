@@ -21,21 +21,32 @@
 
     //예제3 ///해결 x 나중에 다시 말씀해주신다고함
     const member = {
-      name : '홍길동',
+      name: '홍길동',
       age : 25,
       color: 'white',
-      birthday: new Date(),
-      atom: () => {//arrow펑션
-        // console.log(`성명: " + ${name}`);
-        console.log("성명: " + member.name);
+      brithday: new Date(),
+      atom : () => {
+        // console.log(`성명 :  + ${name}`);
+        console.log("성명 : " + member.name);
       }
     }
 
-    let json = JSON.stringify(member); //오브젝트를 제이슨으로 변환..
-    console.log(json);
-    const obj =JSON.parse(json); //스트링으로 만든 JSON을 다시 Object로 변환한다(parse)
-    // console.log(obj);
-    console.log(member.atom());
+    let json = JSON.stringify(member);  // 오브젝트를 제이슨으로 변환(stringify)...
+    console.log(json);  // 제이슨형식으로 출력됨을 알수 있다.
+    /* 출력결과
+      {"name":"홍길동","age":25,"color":"white","brithday":"2022-11-08T13:23:33.463Z"} //키와 value값 모두 큰따옴표(숫자만 제외)
+    */
+  
+    const obj = JSON.parse(json); // JSON형식의 자료를 다시 자바스크립트 형식(Object)로 변환한다.(pasrse-한이유 :자바스크립트로 바꾸려고)
+    console.log(obj);   // 앞에 14번라인에 만들어주었던 object형식(자바스크립트형식)으로 출력된다.
+    /* 출력결과(변수가 오름차순정렬되어 출력된다.) - 다시 자바스크립형식 데이터로 출력
+      Object
+      age: 25
+      brithday: "2022-11-08T13:23:33.463Z"
+      color: "white"
+      name: "홍길동"
+    */
+    member.atom();    // member객체에 정의된 atom()함수를 호출한다. 즉, atom()함수값이 처리된다.  결과: '성명: 홍길동'
   </script>
 </head>
 <body>

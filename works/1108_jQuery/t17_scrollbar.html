@@ -1,0 +1,72 @@
+<!-- 제일 끝이로 이동 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤바제어</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    'use strict';
+    
+    $(function(){
+      let boxHeight = $('#intro').height(); //박스높이
+      let scrollHeight = $('#intro').prop('scrollHeight'); //스크롤 높이를 가져옴 //prop(): 속성(색상,폰트사이즈 등)값을 가져오거나 속성값을 추가함(attr과 비슷하나 이게 더 최신에나옴)<input>에서 주로사용
+      // let scrollTop = $('#intro').scrollTop(); //스크롤 탑 위치
+      // console.log(boxHeight);
+      // console.log(scrollHeight);
+      // console.log(scrollTop);
+
+      let chai = scrollHeight - boxHeight ; //차이/내가 보여주고싶은 위치만큼
+      $('#intro').scrollTop(chai); //스크롤 탑 위치가 차이만큼 옮겨짐
+    });
+
+  </script>
+  <style>
+    #intro {
+      width: 250px;
+      height: 200px;
+      padding: 4px;
+      border: 1px solid gray;
+      background-color: aqua;
+      overflow: auto; /*자동적으로 스크롤바 생김*/
+    }
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btn btn-secondary"/></div>  
+  <h2>자기소개</h2>
+  <div id="intro">
+    <div>1.자기소개를 작성합니다.</div>
+    <div>2.자기소개를 작성합니다.</div>
+    <div>3.자기소개를 작성합니다.</div>
+    <div>4.자기소개를 작성합니다.</div>
+    <div>5.자기소개를 작성합니다.</div>
+    <div>6.자기소개를 작성합니다.</div>
+    <div>7.자기소개를 작성합니다.</div>
+    <div>8.자기소개를 작성합니다.</div>
+    <div>9.자기소개를 작성합니다.</div>
+    <div>10.자기소개를 작성합니다.</div>
+    <div>11.자기소개를 작성합니다.</div>
+    <div>12.자기소개를 작성합니다.</div>
+    <div>13.자기소개를 작성합니다.</div>
+    <div>14.자기소개를 작성합니다.</div>
+    <div>15.자기소개를 작성합니다.</div>
+    <div>16.자기소개를 작성합니다.</div>
+    <div>17.자기소개를 작성합니다.</div>
+    <div>18.자기소개를 작성합니다.</div>
+    <div>19.자기소개를 작성합니다.</div>
+    <div>20.자기소개를 작성합니다.</div>
+  </div>
+  <hr/>
+  <div id="demo"></div>
+</div>
+<p><br/></p>
+</body>
+</html>
