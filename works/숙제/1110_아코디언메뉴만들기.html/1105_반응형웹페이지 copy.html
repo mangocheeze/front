@@ -11,19 +11,42 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
   
-  <!-- <link rel="stylesheet" type="text/css" href="반응형웹페이지.css"> -->
+  <!-- <link rel="stylesheet" type="text/css" href="반응형웹페이지.css"> --><!--css한거--> 
   <script>
     'use strict';
 
     $(function(){
       //초기화면에서 부메뉴는 사라지게함
-      $('#acc .menu ul.content').hide(); 
+      $('ul.content').hide(); 
 
-      // 메뉴에 마우스를 over시키면 부메뉴만 열린다
-      $('#acc .menu a').hover(function(){
+      // 메뉴에 마우스를 올리면 부메뉴가 열린다
+      $('.menu').hover(function(){
         $(this).next().stop().show(300);
         $(this).prev().hide(300);
       });
+
+      //닫기기능추가 (거꾸로 메뉴 열때)
+      $('.menu4').hover(function(){
+        $('.content5').stop().hide(200);
+      });
+
+      $('.menu3').hover(function(){
+        $('.content4').stop().hide(200); //주메뉴3에올리면 서브메뉴4 열린게 사라짐
+      });
+
+      $('.menu2').hover(function(){
+        $('.content3').stop().hide(200);
+      });
+
+      $('.menu1').hover(function(){
+        $('.content2').stop().hide(200);
+      });
+
+      // // 메뉴 전체에서 마우스가 벗어나면 부메뉴들을 닫는다.
+      $('.juncahe').mouseleave(function(){
+        $('ul.content').stop().hide(200);
+      })
+
     });
 
   </script>
@@ -33,7 +56,7 @@
     }
     
     /* 전체 */
-    #mainNav > ul> li{
+    .juncahe {  /*주메뉴안먹힘!!!*/
       width: 300px;
     }
 
@@ -41,6 +64,7 @@
     .menu, ul.content {
       text-align: center;
       cursor: pointer;
+      /* width: 300px; */
     }
 
     /* 주메뉴 */
@@ -48,14 +72,13 @@
       width: 300px;
       /* border-bottom: 1px solid gray; */
       border: 1px solid gray;
-      padding: 5px;
+      padding: 0px;
       background-color: rgb(27, 129, 184);
       color: white;
-      /* width: 150px; */
     }
     
-    /* 서브메뉴 전체 안먹음*/ 
-    .content {
+    /* 서브메뉴 전체*/ 
+    ul.content {/*안먹힘!!!*/
       padding: 5px;
     }
 
@@ -86,8 +109,8 @@
   <header id="mainHeader">
     <h1 class="header1"><a href="1105_반응형웹페이지.html">Dior Beauty</a></h1>
   </header>
-  <nav id="mainNav">  <!--이렇게 줘도되나??-->
-    <ul>
+  <nav id="mainNav"> 
+    <ul class="juncahe">
       <li>
         <a class="menu menu1" href="Dior소개.html" target="_blank">Dior소개</a>  <!--주메뉴 -->
         <ul class="content content1">
@@ -96,7 +119,7 @@
       </li> 
       <li>
         <a  class="menu menu2" href="Dior메이크업.html" target="_blank">Dior 메이크업</a> <!--주메뉴 -->
-        <ul class="content content1">
+        <ul class="content content2">
           <li><a href="#">서브메뉴1</a></li>
           <li><a href="#">서브메뉴2</a></li>
           <li><a href="#">서브메뉴3</a></li>
@@ -105,7 +128,7 @@
       </li>
       <li>
         <a  class="menu menu3" href="Dior향수.html" target="_blank">Dior 향수</a><!--주메뉴 -->
-        <ul class="content content1">
+        <ul class="content content3">
           <li><a href="#">서브메뉴1</a></li>
           <li><a href="#">서브메뉴2</a></li>
           <li><a href="#">서브메뉴3</a></li>
@@ -114,7 +137,7 @@
       </li>
       <li>
         <a  class="menu menu4" href="Dior스킨케어.html" target="_blank">Dior 스킨케어</a><!--주메뉴 -->
-        <ul class="content content1">
+        <ul class="content content4">
           <li><a href="#">서브메뉴1</a></li>
           <li><a href="#">서브메뉴2</a></li>
           <li><a href="#">서브메뉴3</a></li>
@@ -122,7 +145,7 @@
       </li>
       <li>
         <a  class="menu menu5" href="#">Dior 매장</a> <!--주메뉴 -->
-        <ul class="content content1">
+        <ul class="content content5">
           <li><a href="#">서브메뉴1</a></li>
           <li><a href="#">서브메뉴2</a></li>
         </ul>
