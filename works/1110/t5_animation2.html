@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation(애니메이션)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+    'use strict';
+    $(function(){
+      let y = 0; //y는 jQuery에서만 쓰니까 여기다가 변수선언
+      let x = 0;
+
+      //오른쪽이동 버튼
+      $('#moveRight').click(function(){ //오른쪽이동 버튼을 클릭하면
+        if(x >= 10){
+          alert("더이상 오른쪽으로 이동할수 없습니다"); 
+          return;
+        }
+        x++;
+        $('#img1').animate({"marginLeft":(x*50)+"px","width":"100px","height":"100px"},   //왼쪽마진을 조금씩 늘릴거임,사진크기는 이동해서도 똑같아야함/animate() : 애니메이션  //여러개명령쓸땐 {},중괄호안에 있는 속성은(moveLeft나 width) ""써도되고 안써도됨
+          500, //지연시간 0.5초
+          "linear",  //빠른정도 : normal(보통)-안쓰는게 normal임 /linear(빨리)/easing(느리게)
+          function(){
+            $(this).css("border","1px solid red");
+          }
+        );
+      });
+      //왼쪽으로 이동 버튼
+      $('#moveLeft').click(function(){ 
+        if(x <= 0){
+          alert("더이상 왼쪽으로 이동할수 없습니다"); 
+          return;
+        }
+        x--;
+        $('#img1').animate({"marginLeft":(x*50)+"px","width":"100px","height":"100px"},   //왼쪽마진을 조금씩 늘릴거임,사진크기는 이동해서도 똑같아야함/animate() : 애니메이션  //여러개명령쓸땐 {},중괄호안에 있는 속성은(moveLeft나 width) ""써도되고 안써도됨
+          500, //지연시간 0.5초
+          "linear",  //빠른정도 : normal(보통)-안쓰는게 normal임 /linear(빨리)/easing(느리게)
+          function(){
+            $(this).css("border","1px solid red");
+          }
+        );
+      });
+      //아래쪽으로 이동 버튼
+      $('#moveDown').click(function(){
+        if(y >= 10){
+          alert("더이상 아래로 내려갈수 없습니다"); //10번이상 내리면 
+          return; //끝냄
+        }
+        y++; //y값을 증가
+        $('#img1').animate({"marginTop":(y*50)+"px","width":"100px","height":"100px"}) //변수 (y*50) px만큼 marginTop을줌 /*50하는이유: 그냥y쓰면 너무 조금씩 내려가서
+      });
+      //오른쪽으로 이동 버튼
+      $('#moveUp').click(function(){
+        if(y <= 0){
+          alert("더이상 위로 올라갈수 없습니다"); //10번이상 올리면
+          return; //끝냄
+        }
+        y--; //y값을 감소
+        $('#img1').animate({"marginTop":(y*50)+"px","width":"100px","height":"100px"}) 
+      });
+    });
+
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>Animation 연습</h2>
+  <hr/>
+  <button type="button" name="moveLeft" id="moveLeft" class="btn-sm btn-primary">왼쪽이동</button>
+  <button type="button" name="moveRight" id="moveRight" class="btn-sm btn-primary">오른쪽이동</button>
+  <button type="button" name="moveUp" id="moveUp" class="btn-sm btn-primary">위쪽이동</button>
+  <button type="button" name="moveDown" id="moveDown" class="btn-sm btn-primary">아래쪽이동</button>
+  <br/><hr/><br/>
+  <div>
+    <img src="../../images/8.jpg" width="100px" id="img1" />
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

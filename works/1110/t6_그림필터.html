@@ -1,0 +1,45 @@
+<!-- jQuery지만 javascript명령이랑 똑같음(jQuery까지도 필요없긴함): 사진에 필터적용 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>그림필터적용</title>
+  <style>
+    img {
+      /* width: 150px; */
+      width: 30%; /*이렇게 해도됨*/
+      height: auto; /*자동으로*/
+      float: left; /*왼쪽에 붙임?*/
+      max-width: 500px;
+    }
+    #img2 {filter: blur(5px)} /* 희미하게 처리*/
+    #img3 {filter: brightness(200%)} /*그림 밝게처리*/
+    #img4 {filter: contrast(250%)} /*대비*/
+    #img5 {filter: grayscale(100%)} /*컬러색감을뺌 (흑백처리)*/
+    #img6 {filter: hue-rotate(100deg)} /*색상으로 조절: deg(각도)*/
+    #img7 {filter: invert(100%)} /*보색관계로 뒤집어버림*/
+    #img8 {filter: opacity(50%)} /*불투명도*/
+    #img9 {filter: saturate(5)} /*채도*/
+    #img10 {filter: sepia()} /*세피아톤 적용*/
+    #img11 {filter: drop-shadow(5px 5px 3px gray)} /*사진의 그림자*/
+    
+  
+  </style>
+</head>
+<body>
+  <h2>그림 필터 적용하기</h2>
+  <img src="../../images/10.jpg" id="img1"/>
+  <img src="../../images/10.jpg" id="img2"/>
+  <img src="../../images/10.jpg" id="img3"/>
+  <img src="../../images/10.jpg" id="img4"/>
+  <img src="../../images/10.jpg" id="img5"/>
+  <img src="../../images/10.jpg" id="img6"/>
+  <img src="../../images/10.jpg" id="img7"/>
+  <img src="../../images/10.jpg" id="img8"/>
+  <img src="../../images/10.jpg" id="img9"/>
+  <img src="../../images/10.jpg" id="img10"/>
+  <img src="../../images/10.jpg" id="img11"/>
+</body>
+</html>

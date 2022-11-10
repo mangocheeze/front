@@ -1,0 +1,118 @@
+<!-- 버튼실행,버튼눌러서 제일 끝으로 이동하면 processing 이미지뜨게하기 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스크롤바제어2</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<!-- 다 잘했는데 실행이안될땐 jQuery 링크 다시 받아오기 -->
+
+  <script>
+    'use strict';
+    /*
+    boxHeight: 박스높이
+    scrollHeight :전체 스크롤높이(스크롤을 내리면 계속 추가가됨)
+    scrollTop: boxheight의 왼쪽 위 꼭지점부분이라고생각(스크롤을 올리면 스크롤탑이계속 바뀜)
+    -스크롤탑의위치는 제일 처음 스크롤안움직이고 위에있을때는 스크롤탑위치 0
+    스크롤 내렸을때 스크롤탑의 위치는: 전체스크롤높이-박스높이하면 나옴(ex.전체 스크롤높이 20, 박스높이:5 스크롤탑의 위치는:20-5=15임)
+    쉽게말해 위로 올린 길이만큼이 스크롤탑위치가 된다고생각
+
+    */
+
+    $(function(){
+      let no = 0; //전역변수/번호주기위해서만듦,누적할거라 초기값 0
+      let chai;
+      let scrollTop;  
+      let scrollHeight;
+      let boxHeight;
+
+      //초기데이터를 DB에서 가져와 레이어(panel)에 추가시켜준다(20개씩 추가됨)
+      function makeData(){  //makeDate는 임의로준 이름
+        let str = ''; //이것도 누적할거라 초기값준거임(문자라 '')
+        for(let i=0; i<20; i++){  //20은 그냥 마음대로 지정 (처음 몇줄인지 보여주는 횟수)
+          no++; //숫자 계속 1씩증가
+          str += "<h3>Content: " + no + "</h3>";  //<h3>크기로지정 str에 누적시킴/(Content: 숫자)가 계속 누적
+        }
+        $("#panel").append(str)  //append명령: 지정된 위치에 추가한다/ str(20개만든걸) id가 panel(박스)에 또 추가함(계속 20씩추가해서 누적)
+      }
+      makeData(); //초기데이터를 레이어에 담아서 출력시켜주기위해 호출한다
+
+      $('#container #panel').on('scroll',function(evt){ //.scroll이벤트가 발생/원래는 on(function(){}); 이건데 이벤트발생한거 뒤에 ',' 쓰고 function(){} 씀 
+      //evt쓴이유 ???
+        scrollTop = $(this).scrollTop(); //현재내가 마우스 스크롤하고있는 위치를 가져옴//scrollTop():스크롤의 위치가 제일위에
+        scrollHeight = $(this).prop('scrollHeight'); //현재 스크롤바의 높이
+        boxHeight = $(this).height();//현재 박스(레이어)크기
+
+        // let chai = scrollHeight-boxHeight;//전체높이-박스높이=초기화면의 마지막위치 로이동함(박스의 아래남은부분들이 남으니까)
+        chai = scrollHeight-scrollTop; //윗줄 방법은 초기화면에서의 마지막위치로 이동이지만, 이렇게 쓰면 스크롤내려간만큼 그 위치로 이동할수있음 ??
+        //chai= 전체스크롤높이 - 스크롤탑위치;
+        
+        //마지막에 있을때 실행(초기데이터만큼 추가됨)!!
+        if(chai === boxHeight) { //===: 타입까지 비교(완벽비교)/chai랑 박스높이가 같으면
+        //만약 전체스크롤높이가 20이고 스크롤탑위치가 15이면 남은게 5인데 박스높이가 5라면(즉 둘이 같다면) 박스는 전체스크롤의 가장아래에 가있는거랑 같음
+
+          console.log(scrollTop); //찍어봄
+          $(".processing").show().delay(1000).hide(500,function(){ 
+          //processing클래스에있는걸 보여줄건데 바로보여주면재미없으니까 delay시킨후 1초간딜레이시킨후 0.5초뒤에 사라짐(사진을 천천히 사라지게하고싶을때)
+          //delay(1000): delay함수/1000=1초 간delay)
+            console.log(chai); //찍어봄
+            makeData(); //호출하는 얘로인해 20씩 계속 추가가됨
+          });  
+        }
+      }); 
+      //'처음으로이동 버튼' 클릭시
+      $('#btnstart').click(function(){
+        $('#container #panel').scrollTop(0);
+      });
+
+      //'끝으로이동 버튼' 클릭시
+      $('#btnEnd').click(function(){
+        scrollTop = $('#panel').scrollTop(); 
+        scrollHeight = $('#panel').prop('scrollHeight'); 
+        boxHeight = $('#panel').height();
+
+        chai = scrollHeight-boxHeight; //전체높이-박스높이=초기화면의 마지막위치로이동함/ 박스높이의 끝으로이동함
+
+        $('#container #panel').scrollTop(chai);
+        
+      });
+    });
+
+  </script>
+  <style>
+    #container {width: 600px;}
+    #panel {
+      width: 600px;
+      height: 300px;
+      overflow: auto;/*자동적으로 스크롤바 생김*/
+      border: 1px solid #ddd;
+    }
+
+  </style>
+</head>
+<body>
+<p><br/></p>
+<!-- <div class="container">  -->
+<div class="card-body"> <!--card-body: ???-->
+  <div>
+    <input type="button" value="처음으로 이동" id="btnstart"  class="btn btn-secondary"/>
+    <input type="button" value="끝으로 이동" id="btnEnd"  class="btn btn-secondary"/>
+  </div>    
+  <div id="container">
+    <h2>게시목록리스트</h2>
+    <div id="panel"></div> <!-- 여기 사이에 Content: 숫자 가나온거임-->
+    <div class="processing" style="display: none; text-align:center;"> <!--처음은 안보이게 설정-->
+      <img src="../../images/processing.gif"/>
+    </div>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

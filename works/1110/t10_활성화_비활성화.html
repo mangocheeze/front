@@ -1,0 +1,74 @@
+<!-- 활성화: 수정가능
+      비활성화: 읽기만할수있음 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>활성화와 비활성화</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+
+
+    $(function(){
+      //활성화버튼
+      $("#btn1").click(function(){
+        $('input[type="text"]').attr('disabled',false);  //'disabled' : readonly랑같은개념,비활성화/비활성화를 false해라니까 활성화해라
+        $('input[type="password"]').attr('disabled',false);
+      });
+      
+      //비활성화버튼
+      $("#btn2").click(function(){
+        $('input[type="text"]').attr('disabled','disabled');  //true대신 이렇게 써도됨
+        $('input[type="password"]').attr('disabled',true);  //'disabled' true : 비활성화해라
+      });
+      
+      //활성화/비활성화 (활성화였다 비활성화였다하는버튼)
+      $("#btn3").click(function(){
+        let txtFlag = $('input[type="text"]');
+        let pwdFlag = $('input[type="password"]');
+
+        if(txtFlag.is(":enabled") && pwdFlag.is(":enabled")) { //txtFlag랑 pwdFlag가 둘다(둘다같아야하니까 &&) 활성화니? //:enabled :활성화
+          //활성화가 맞음
+          txtFlag.attr('disabled','disabled'); 
+          pwdFlag.attr('disabled','disabled');
+        }
+        else{ 
+          //활성화가아님
+          txtFlag.attr('disabled',false);
+          pwdFlag.attr('disabled',false);
+        }
+    });
+  });
+  </script>
+  <style>
+    
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>활성화/비활성화 연습</h2>
+  <form name="myform">
+    아이디:
+    <input type="text" name="mid" id="mid" value="hkd1234" class="form-control mb-2"/>
+    비밀번호:
+    <input type="password" name="pwd" id="pwd" value="1234567890" class="form-control mb-2"/>
+    성명:
+    <input type="text" name="name" id="name" value="홍길동" class="form-control mb-2"/>
+    <button type="button" id="btn1" class="btn btn-success mr-3">활성화</button>
+    <button type="button" id="btn2" class="btn btn-danger mr-3">비활성화</button>
+    <button type="button" id="btn3" class="btn btn-warning mr-3">활성화/비활성화</button>
+  </form>
+</div>
+<p><br/></p>
+</body>
+</html>
+
+<!-- jQuery에선 js에서의 readonly 속성은 없고 같은개념으로 disabled에도 있음 비활성화 읽기만해라 -->

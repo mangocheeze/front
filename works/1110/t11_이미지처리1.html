@@ -1,0 +1,60 @@
+<!-- 쇼핑몰웹 만들때 많이 사용 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지처리</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script>
+    'use strict';
+    $(function(){
+      //크기변경
+      $('#btn1').click(function(){
+        $('#img1').attr({  //attr (): 속성을 처리
+          width : "200px" ,
+          // border: "5px solid gray",  //지금 안먹음
+          title : '그림 설명입니다.'
+        });
+      });
+      //크기복귀
+      $('#btn2').click(function(){
+        $('#img1').attr({  
+          width : "100px", //원래 크기가 100이니까 100으로
+          title : '그림 설명입니다.'
+        });
+        // location.reload(); //위방법말고 이렇게도할수는있음(추천은안함)
+      });
+      //사진변경
+      $('#btn3').click(function(){
+        $('#img1').attr({  
+          src   : "../../images/3.jpg",
+          width : "100px", //원래 크기가 100이니까 100으로
+          title : '그림3 설명입니다.'
+        });
+      });
+    });
+
+  </script>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>이미지 속성 변경</h2>
+  <P>
+    <button type="button" id="btn1">크기변경</button>
+    <button type="button" id="btn2">크기복귀</button>
+    <button type="button" id="btn3">사진변경</button>
+  </P>
+  <div>
+    <img src="../../images/2.jpg" id="img1" width="100px"/>
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

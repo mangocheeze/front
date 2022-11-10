@@ -12,18 +12,30 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     'use strict';
+    let chai;
     
-    $(function(){
-      let boxHeight = $('#intro').height(); //박스높이
+    $(function(){ //jQuery
+      let boxHeight = $('#intro').height(); //박스높이(보여지는박스)
       let scrollHeight = $('#intro').prop('scrollHeight'); //스크롤 높이를 가져옴 //prop(): 속성(색상,폰트사이즈 등)값을 가져오거나 속성값을 추가함(attr과 비슷하나 이게 더 최신에나옴)<input>에서 주로사용
       // let scrollTop = $('#intro').scrollTop(); //스크롤 탑 위치
       // console.log(boxHeight);
       // console.log(scrollHeight);
       // console.log(scrollTop);
 
-      let chai = scrollHeight - boxHeight ; //차이/내가 보여주고싶은 위치만큼
-      $('#intro').scrollTop(chai); //스크롤 탑 위치가 차이만큼 옮겨짐
+      chai = scrollHeight - boxHeight ; //차이:내가 보여주고싶은 위치만큼 /스크롤전체높이-박스높이
+      $('#intro').scrollTop(chai); //scrollTop 위치가 chai만큼 옮겨진걸 id가 intro인 곳에 담음?
+    
+      $('#btnEnd').click(function(){ //영역의 끝으로이동 버튼을 누르면 실행되게함 (아직 긑으로 이동하진않고 alert창만뜸)
+        $('#intro').scrollTop(chai);
+      });
     });
+    
+    function lastCheck(){  //아직 btn누르면 끝으로 이동하게하는건 못하니까 onclick사용??
+      alert("lastCheck()함수를 호출하셨습니다");
+      $('#intro').scrollTop(chai); // chai변수를 선언안하고 그냥 쓰면에러가남 그래서 위에보면 jQuery안에다 선언하지말고 아예 밖으로 빼서 같이사용하거나 , 여기에도 선언해줘야함(전자 추천)
+    }
+    //jQuery안에다 넣으면 lastCheck()없다고 에러남/자바스크립트함수는 jQuery밖에다가 사용하면 둘다 혼용 된다는걸 보여줌
+    //단, 변수를 jQuery꺼를 바로쓸순없으니 선언다시 해줘야함
 
   </script>
   <style>
@@ -40,7 +52,7 @@
 <body>
 <p><br/></p>
 <div class="container">
-  <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" class="btn btn-secondary"/></div>  
+  <div><input type="button" value="영역의 끝으로 이동" id="btnEnd" onclick="lastCheck()" class="btn btn-secondary"/></div>  
   <h2>자기소개</h2>
   <div id="intro">
     <div>1.자기소개를 작성합니다.</div>

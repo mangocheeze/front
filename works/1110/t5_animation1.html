@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animation(애니메이션)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+  <script>
+    'use strict';
+    $(function(){
+      $('#moveRight').click(function(){ //오른쪽이동 버튼을 클릭하면
+        $('#img1').animate({"marginLeft":"100px","width":"100px","height":"100px"},   //왼쪽마진을 조금씩 늘릴거임,사진크기는 이동해서도 똑같아야함/animate() : 애니메이션  //여러개명령쓸땐 {},중괄호안에 있는 속성은(moveLeft나 width) ""써도되고 안써도됨
+          500, //지연시간 0.5초
+          "linear",  //빠른정도 : normal(보통)-안쓰는게 normal임 /linear(빨리)/easing(느리게)
+          function(){
+            $(this).css("border","1px solid red");
+          }
+        );
+      });
+      //왼쪽으로 이동 버튼
+      $('#moveLeft').click(function(){ 
+        $('#img1').animate({"marginLeft":"0px","width":"100px","height":"100px"},   //왼쪽마진을 조금씩 늘릴거임,사진크기는 이동해서도 똑같아야함/animate() : 애니메이션  //여러개명령쓸땐 {},중괄호안에 있는 속성은(moveLeft나 width) ""써도되고 안써도됨
+          500, //지연시간 0.5초
+          "linear",  //빠른정도 : normal(보통)-안쓰는게 normal임 /linear(빨리)/easing(느리게)
+          function(){
+            $(this).css("border","1px solid red");
+          }
+        );
+      });
+    });
+
+  </script>
+  <style>
+
+  </style>
+</head>
+<body>
+<p><br/></p>
+<div class="container">
+  <h2>Animation 연습</h2>
+  <hr/>
+  <button type="button" name="moveLeft" id="moveLeft" class="btn-sm btn-primary">왼쪽이동</button>
+  <button type="button" name="moveRight" id="moveRight" class="btn-sm btn-primary">오른쪽이동</button>
+  <br/><hr/><br/>
+  <div>
+    <img src="../../images/8.jpg" width="100px" id="img1" />
+  </div>
+</div>
+<p><br/></p>
+</body>
+</html>

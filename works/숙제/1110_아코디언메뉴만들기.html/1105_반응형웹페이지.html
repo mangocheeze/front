@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dior Beauty(반응형웹페이지만들기)</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  
+  <!-- <link rel="stylesheet" type="text/css" href="반응형웹페이지.css"> -->
+  <script>
+    'use strict';
+
+    $(function(){
+      $('#mainNav menu ul').hide(); //초기화면에서 부메뉴는 사라지게함
+
+      $('#acc .menu').hover(function(){
+        $(this).next().stop().show(300);
+        $(this).prev().hide(300);
+      });
+    });
+  </script>
+</head>
+<body>
+<div id="container">
+  <header id="mainHeader">
+    <h1 class="header1"><a href="1105_반응형웹페이지.html">Dior Beauty</a></h1>
+  </header>
+  <nav class="card-body accordion" id="mainNav"> <!--메인 메뉴-->  <!--이렇게 줘도되나??-->
+    <ul>
+      <li class="menu menu1">
+        <a href="Dior소개.html" target="_blank">Dior소개</a>  <!--주메뉴 -->
+        <ul>
+          <li><a href="#">서브메뉴1</a></li>
+        </ul>
+      </li> 
+      <li class="menu menu2">
+        <a href="Dior메이크업.html" target="_blank">Dior 메이크업</a> <!--주메뉴 -->
+        <ul>
+          <li><a href="#">서브메뉴1</a></li>
+          <li><a href="#">서브메뉴2</a></li>
+          <li><a href="#">서브메뉴3</a></li>
+          <li><a href="#">서브메뉴4</a></li>
+        </ul>
+      </li>
+      <li class="menu menu3">
+        <a href="Dior향수.html" target="_blank">Dior 향수</a><!--주메뉴 -->
+        <ul>
+          <li><a href="#">서브메뉴1</a></li>
+          <li><a href="#">서브메뉴2</a></li>
+          <li><a href="#">서브메뉴3</a></li>
+          <li><a href="#">서브메뉴4</a></li>
+        </ul>
+      </li>
+      <li class="menu menu4">
+        <a href="Dior스킨케어.html" target="_blank">Dior 스킨케어</a><!--주메뉴 -->
+        <ul>
+          <li><a href="#">서브메뉴1</a></li>
+          <li><a href="#">서브메뉴2</a></li>
+          <li><a href="#">서브메뉴3</a></li>
+        </ul>
+      </li>
+      <li class="menu menu5">
+        <a href="#">Dior 매장</a> <!--주메뉴 -->
+        <ul>
+          <li><a href="#">서브메뉴1</a></li>
+          <li><a href="#">서브메뉴2</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <section id="content">
+    <h2>Dior 신제품 소식</h2>
+    <article> <!--사이트와 완전히 독립적으로 구성할수있는 요소 정의-->
+      <h3>리미티드 에디션</h3>
+        <p>디올 립스틱 케이스</p>
+        <div>
+          디올 어딕트의 디올 샤인 립스틱이 트렌디한 디자인의 리미티드 에디션 케이스로 꾸뛰르 감성을 새로운 차원으로 끌어올립니다.
+          이번 리미티드 에디션에서는 미스 디올 향수에서 영감받은 2가지 익스클루시브* 작품을 선보입니다.
+          아이코닉 플라워 장식의 밀레피오리 케이스와 미스 디올 오 드 퍼퓸의 뽀야나르 보우를 연상시키는 미스 디올 케이스를 만나보세요.
+          디올 어딕트 패션 케이스는 단독으로 사용할 수 없으며, 디올 어딕트 립스틱 또는 디올 어딕트 립스틱 리필과 호환하여 사용할 수 있습니다.
+          디올 메이크업 크리에이티브 & 이미지 디렉터 피터 필립스가 미스 디올이 탄생한 해를 기념하여 구상한
+          #1947 미스 디올 리미티드 에디션 컬러와도 매칭하여 사용이 가능합니다. 
+        </div>
+    </article>
+  </section>
+  <aside id="sidebar"> <!--사진이나 광고-->
+    <a href="https://shop.dior.co.kr/products/y0997029-millefiori?variant=42064743202974&currency=KRW&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQjwk5ibBhDqARIsACzmgLRYT3zQM1KpVHSEw-RMsQc5wN1o0yHWXHT84xnoU0OjClBUkl3BUvMaApzlEALw_wcB" target="_blank">
+    <img src="images/반응형웹페이지_신제품.png"/></a>
+
+    <a href="https://shop.dior.co.kr/products/mix-and-match?variant=41485358792862&currency=KRW&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQjwk5ibBhDqARIsACzmgLQ7qM-0a0qiWuq2Q_huhANJBL3zWkl92JjZvBxO95uIdOSxXQm1SYEaAkt9EALw_wcB" target="_blank">
+    <img src="images/반응형웹페이지_신제품2.png"/></a>
+
+    <a href="https://shop.dior.co.kr/products/y0997029-millefiori?variant=42064743235742&currency=KRW&utm_medium=product_sync&utm_source=google&utm_content=sag_organic&utm_campaign=sag_organic&gclid=Cj0KCQjwk5ibBhDqARIsACzmgLSYUbw0vvHeHfXedndpNevkS0NXSiuhMlJcpRJr-cSyZC5ETdUXq_EaAqPBEALw_wcB" target="_blank">
+    <img src="images/반응형웹페이지_신제품3.png"</a>
+  </aside>
+  <footer id="footer">
+    <p>000 Gucheondong-ro Muju-gun, DukYu Mountain Special Self-Governing Province</p>
+    <address>Copyright ⓒ. All rights reserved. Photo by Jeongin Bae</address>
+  </footer>
+</div>
+</body>
+</html>
